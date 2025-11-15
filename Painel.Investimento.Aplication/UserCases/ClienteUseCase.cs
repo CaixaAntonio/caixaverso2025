@@ -5,7 +5,7 @@ using Painel.Investimento.Domain.Valueobjects;
 
 namespace Painel.Investimento.Aplication.UserCases
 {
-    public class RegistrarClienteUseCase: IRegistrarClienteAplicationRepository
+    public class ClienteUseCase: IRegistrarClienteAplicationRepository
     {
         public async Task AddAsync(RegistrarClienteDto input)
         {

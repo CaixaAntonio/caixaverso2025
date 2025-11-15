@@ -1,4 +1,5 @@
-﻿using Painel.investimento.Infra.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Painel.investimento.Infra.Data;
 using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repository.Abstract;
 using System;
@@ -20,9 +21,25 @@ namespace Painel.investimento.Infra.Repositorie
 
         public async Task AddAsync(ProdutoInvestimento produto)
         {
-            _context.ProdutosInvestimento.Add(produto);
-            //await _context.SaveChangesAsync();
-            //return produto;
+            await _context.ProdutosInvestimento.AddAsync(produto);
+            // Não chamamos SaveChanges aqui, pois o UnitOfWork é responsável pelo commit
+        }
+
+        public async Task<IEnumerable<ProdutoInvestimento>> GetAllAsync()
+        {
+            return await _context.ProdutosInvestimento.ToListAsync();
+        }
+
+        public async Task<ProdutoInvestimento?> GetByIdAsync(int id)
+        {
+            return await _context.ProdutosInvestimento
+                                 .FirstOrDefaultAsync(p => p.Id == id);
+        }
+
+        public void Remove(ProdutoInvestimento produto)
+        {
+            _context.ProdutosInvestimento.Remove(produto);
+            // Também não chamamos SaveChanges aqui, o UnitOfWork fará isso
         }
     }
 }

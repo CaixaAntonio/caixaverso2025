@@ -4,7 +4,6 @@ using Painel.investimento.API.Mapper;
 using Painel.investimento.Infra.Data;
 using Painel.investimento.Infra.Repositorie;
 using Painel.Investimento.Aplication.UserCases;
-using FluentValidation.AspNetCore;
 using Painel.investimento.API.ViewModels.Validators;
 using FluentValidation;
 using Painel.Investimento.Domain.Repository.Abstract;
@@ -17,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<CadastrarProdutoInvestimentoUseCase>();
+builder.Services.AddScoped<ProdutoInvestimentoUseCase>();
 builder.Services.AddScoped<IProdutoInvestimentoRepository, ProdutoInvestimentoRepository>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();

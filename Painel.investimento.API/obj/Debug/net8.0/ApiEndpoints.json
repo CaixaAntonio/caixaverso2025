@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "Painel.investimento.API.Controllers.ProdutoInvestimentoController",
+    "ContainingType": "Painel.Investimento.API.Controllers.ProdutoInvestimentoController",
     "Method": "Post",
     "RelativePath": "api/produtoinvestimento",
     "HttpMethod": "POST",
@@ -10,6 +10,69 @@
       {
         "Name": "dto",
         "Type": "Painel.Investimento.Domain.Dtos.ProdutoInvestimentoRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.ProdutoInvestimentoController",
+    "Method": "GetAll",
+    "RelativePath": "api/produtoinvestimento",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.ProdutoInvestimentoController",
+    "Method": "GetById",
+    "RelativePath": "api/produtoinvestimento/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.ProdutoInvestimentoController",
+    "Method": "Put",
+    "RelativePath": "api/produtoinvestimento/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Painel.Investimento.Domain.Dtos.ProdutoInvestimentoRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.ProdutoInvestimentoController",
+    "Method": "Delete",
+    "RelativePath": "api/produtoinvestimento/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

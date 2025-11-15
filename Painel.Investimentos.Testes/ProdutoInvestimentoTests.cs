@@ -12,61 +12,79 @@ namespace Painel.Investimentos.Testes
         [Fact]
         public void Deve_Criar_ProdutoInvestimento_Valido()
         {
-            // Arrange
-            var nome = "CDB";
-            var tipo = "Renda Fixa";
-            var rentabilidade = 0.12m;
-            var risco = 10;
-            var descricao = "Certificado de Depósito Bancário";
-
-            // Act
-            var produto = new ProdutoInvestimento(nome, tipo, rentabilidade, risco, descricao);
+            // Arrange & Act
+            var produto = new ProdutoInvestimento("CDB", "Renda Fixa", 0.12m, 10, "Certificado de Depósito Bancário");
 
             // Assert
-            Assert.Equal(nome, produto.Nome);
-            Assert.Equal(tipo, produto.Tipo);
-            Assert.Equal(rentabilidade, produto.RentabilidadeAnual);
-            Assert.Equal(risco, produto.Risco);
-            Assert.Equal(descricao, produto.Descricao);
+            Assert.Equal("CDB", produto.Nome);
+            Assert.Equal("Renda Fixa", produto.Tipo);
+            Assert.Equal(0.12m, produto.RentabilidadeAnual);
+            Assert.Equal(10, produto.Risco);
+            Assert.Equal("Certificado de Depósito Bancário", produto.Descricao);
+        }
+
+        [Theory]
+        [InlineData("", "Renda Fixa", 0.12, 10, "Descrição válida", "Nome não pode ser vazio.")]
+        [InlineData("CDB", "", 0.12, 10, "Descrição válida", "Tipo não pode ser vazio.")]
+        [InlineData("CDB", "Renda Fixa", 0, 10, "Descrição válida", "Rentabilidade deve ser maior que zero.")]
+        [InlineData("CDB", "Renda Fixa", 0.12, 0, "Descrição válida", "Risco deve estar entre 1 e 100.")]
+        [InlineData("CDB", "Renda Fixa", 0.12, 10, "", "Descrição não pode ser vazia.")]
+        public void Deve_Lancar_Excecao_Quando_Dados_Invalidos(
+            string nome, string tipo, decimal rentabilidade, int risco, string descricao, string mensagemEsperada)
+        {
+            // Act & Assert
+            var ex = Assert.Throws<ArgumentException>(() =>
+                new ProdutoInvestimento(nome, tipo, rentabilidade, risco, descricao));
+
+            Assert.Contains(mensagemEsperada, ex.Message);
         }
 
         [Fact]
-        public void Deve_Lancar_Excecao_Quando_Nome_Vazio()
+        public void Deve_Atualizar_ProdutoInvestimento_Com_Dados_Validos()
         {
-            // Act & Assert
-            Assert.Throws<ArgumentException>(() =>
-                new ProdutoInvestimento("", "Renda Fixa", 0.12m, 10, "Teste"));
+            // Arrange
+            var produto = new ProdutoInvestimento("CDB", "Renda Fixa", 0.12m, 10, "Descrição inicial");
+
+            // Act
+            produto.AtualizarProdutoInvestimento("LCI", "Renda Fixa", 0.15m, 20, "Nova descrição");
+
+            // Assert
+            Assert.Equal("LCI", produto.Nome);
+            Assert.Equal("Renda Fixa", produto.Tipo);
+            Assert.Equal(0.15m, produto.RentabilidadeAnual);
+            Assert.Equal(20, produto.Risco);
+            Assert.Equal("Nova descrição", produto.Descricao);
         }
 
         [Fact]
-        public void Deve_Lancar_Excecao_Quando_Rentabilidade_Menor_Ou_Igual_A_Zero()
+        public void Deve_Lancar_Excecao_Ao_Atualizar_Com_Dados_Invalidos()
         {
+            // Arrange
+            var produto = new ProdutoInvestimento("CDB", "Renda Fixa", 0.12m, 10, "Descrição inicial");
+
             // Act & Assert
             Assert.Throws<ArgumentException>(() =>
-                new ProdutoInvestimento("CDB", "Renda Fixa", 0m, 10, "Teste"));
+                produto.AtualizarProdutoInvestimento("", "Renda Fixa", 0.12m, 10, "Descrição válida"));
         }
 
-        //[Fact]
-        //public void Deve_Atualizar_Rentabilidade_Valida()
-        //{
-        //    // Arrange
-        //    var produto = new ProdutoInvestimento("CDB", "Renda Fixa", 0.12m, 10, "Teste");
+        [Fact]
+        public void Deve_Validar_Produto_Correto()
+        {
+            // Arrange
+            var produto = new ProdutoInvestimento("CDB", "Renda Fixa", 0.12m, 10, "Descrição válida");
 
-        //    // Act
-        //    produto.AtualizarRentabilidade(0.15m);
+            // Act & Assert
+            produto.Validar(); // não deve lançar exceção
+        }
 
-        //    // Assert
-        //    Assert.Equal(0.15m, produto.RentabilidadeAnual);
-        //}
+        [Fact]
+        public void Deve_Lancar_Excecao_Ao_Atualizar_Com_Rentabilidade_Invalida()
+        {
+            var produto = new ProdutoInvestimento("CDB", "Renda Fixa", 0.12m, 10, "Descrição válida");
 
-        //[Fact]
-        //public void Deve_Lancar_Excecao_Ao_Atualizar_Rentabilidade_Invalida()
-        //{
-        //    // Arrange
-        //    var produto = new ProdutoInvestimento("CDB", "Renda Fixa", 0.12m, 10, "Teste");
+            Assert.Throws<ArgumentException>(() =>
+                produto.AtualizarProdutoInvestimento("CDB", "Renda Fixa", -1m, 10, "Descrição válida"));
+        }
 
-        //    // Act & Assert
-        //    Assert.Throws<ArgumentException>(() => produto.AtualizarRentabilidade(0m));
-        //}
     }
 }

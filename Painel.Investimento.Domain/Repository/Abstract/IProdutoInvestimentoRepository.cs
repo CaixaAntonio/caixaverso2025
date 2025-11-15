@@ -10,5 +10,9 @@ namespace Painel.Investimento.Domain.Repository.Abstract
     public interface IProdutoInvestimentoRepository
     {
         Task AddAsync(ProdutoInvestimento produto);
+        Task<ProdutoInvestimento?> GetByIdAsync(int id);
+        Task<IEnumerable<ProdutoInvestimento>> GetAllAsync();
+        void Remove(ProdutoInvestimento produto);
     }
+
 }
