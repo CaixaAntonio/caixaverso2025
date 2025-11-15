@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "Painel.investimento.API.Controllers.ProdutoInvestimentoController",
+    "Method": "Post",
+    "RelativePath": "api/produtoinvestimento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Painel.Investimento.Domain.Dtos.ProdutoInvestimentoRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

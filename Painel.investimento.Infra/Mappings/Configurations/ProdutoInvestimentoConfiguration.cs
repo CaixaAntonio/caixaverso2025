@@ -13,12 +13,12 @@ namespace Painel.investimento.Infra.Mappings.Configurations
     {
         public void Configure(EntityTypeBuilder<ProdutoInvestimento> builder)
         {
-            builder.ToTable("ProdutosInvestimento");
+            builder.ToTable("ProdutoInvestimento");
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.Nome).HasMaxLength(100).IsRequired();
             builder.Property(p => p.Tipo).HasMaxLength(50).IsRequired();
-            builder.Property(p => p.RentabilidadeAnual).HasColumnType("decimal(5,4)").IsRequired();
+            builder.Property(p => p.RentabilidadeAnual).HasColumnType("decimal(18,4)").IsRequired();
             builder.Property(p => p.Risco).IsRequired();
             builder.Property(p => p.Descricao).HasMaxLength(250);
         }

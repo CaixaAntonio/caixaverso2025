@@ -16,7 +16,7 @@ namespace Painel.investimento.API.Repository.Concret
         }
 
 
-        }
+    }
 
        
 }

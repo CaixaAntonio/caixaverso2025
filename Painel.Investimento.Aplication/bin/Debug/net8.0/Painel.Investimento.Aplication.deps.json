@@ -25,7 +25,10 @@
       },
       "Painel.Investimento.Domain/1.0.0": {
         "runtime": {
-          "Painel.Investimento.Domain.dll": {}
+          "Painel.Investimento.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

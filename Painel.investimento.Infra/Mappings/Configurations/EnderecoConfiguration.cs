@@ -21,8 +21,7 @@ namespace Painel.investimento.Infra.Mappings.Configurations
             builder.Property(e => e.Complemento).HasMaxLength(50);
             builder.Property(e => e.Bairro).HasMaxLength(100);
             builder.Property(e => e.Cidade).HasMaxLength(100);           
-            builder.Property(e => e.Cep).HasMaxLength(8);
-            
+           
             builder.OwnsOne(e => e.Estado, uf =>
             {
                 uf.Property(u => u.Sigla).HasColumnName("EstadoSigla").HasMaxLength(2).IsRequired();

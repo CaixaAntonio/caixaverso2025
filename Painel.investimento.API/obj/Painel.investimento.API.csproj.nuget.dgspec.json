@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Desenvolvimento\\Caixa_Verso\\Painel.investimento.API\\Painel.investimento.API.csproj": {}
+    "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Painel.investimento.API.csproj": {}
   },
   "projects": {
-    "C:\\Desenvolvimento\\Caixa_Verso\\Painel.investimento.API\\Painel.investimento.API.csproj": {
+    "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Painel.investimento.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.investimento.API\\Painel.investimento.API.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Painel.investimento.API.csproj",
         "projectName": "Painel.investimento.API",
-        "projectPath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.investimento.API\\Painel.investimento.API.csproj",
-        "packagesPath": "C:\\Users\\c159889\\.nuget\\packages\\",
-        "outputPath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.investimento.API\\obj\\",
+        "projectPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Painel.investimento.API.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\c159889\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -33,11 +29,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj": {
-                "projectPath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj"
+              "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj": {
+                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj"
               },
-              "C:\\Desenvolvimento\\Caixa_Verso\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj": {
-                "projectPath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj"
+              "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj": {
+                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj"
               }
             }
           }
@@ -57,15 +53,27 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.3.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.1, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -105,25 +113,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj": {
+    "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj",
         "projectName": "Painel.Investimento.Aplication",
-        "projectPath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj",
-        "packagesPath": "C:\\Users\\c159889\\.nuget\\packages\\",
-        "outputPath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Aplication\\obj\\",
+        "projectPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Aplication\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\c159889\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -138,8 +142,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj": {
-                "projectPath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj"
+              "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj": {
+                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj"
               }
             }
           }
@@ -180,25 +184,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj": {
+    "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj",
         "projectName": "Painel.Investimento.Domain",
-        "projectPath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj",
-        "packagesPath": "C:\\Users\\c159889\\.nuget\\packages\\",
-        "outputPath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Domain\\obj\\",
+        "projectPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\c159889\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -245,25 +245,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Desenvolvimento\\Caixa_Verso\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj": {
+    "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj",
         "projectName": "Painel.investimento.Infra",
-        "projectPath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj",
-        "packagesPath": "C:\\Users\\c159889\\.nuget\\packages\\",
-        "outputPath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.investimento.Infra\\obj\\",
+        "projectPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.Infra\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\c159889\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -278,8 +274,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj": {
-                "projectPath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj"
+              "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj": {
+                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj"
+              },
+              "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj": {
+                "projectPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj"
               }
             }
           }
@@ -305,17 +304,17 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.0, )"
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -334,7 +333,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

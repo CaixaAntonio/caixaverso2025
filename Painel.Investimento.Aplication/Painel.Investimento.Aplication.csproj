@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repository\Concret\**" />
+    <EmbeddedResource Remove="Repository\Concret\**" />
+    <None Remove="Repository\Concret\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="12.1.0" />
   </ItemGroup>
 
@@ -15,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repository\Concret\" />
+    <Folder Include="Repository\Concrete\" />
   </ItemGroup>
 
 </Project>

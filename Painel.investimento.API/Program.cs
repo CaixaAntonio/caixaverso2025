@@ -1,10 +1,14 @@
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
-using Painel.investimento.API.Repository.Abstract;
-using Painel.investimento.API.Repository.Concret;
+using Painel.investimento.API.Mapper;
 using Painel.investimento.Infra.Data;
-using Painel.Investimento.Aplication.Repository.Abstract;
+using Painel.investimento.Infra.Repositorie;
 using Painel.Investimento.Aplication.UserCases;
-using System;
+using Painel.Investimento.Domain.Repository;
+using FluentValidation.AspNetCore;
+using Painel.investimento.API.ViewModels.Validators;
+using FluentValidation;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +17,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<IRegistrarClienteAplicationRepository, RegistrarCliente>();
+builder.Services.AddScoped<CadastrarProdutoInvestimentoUseCase>();
+builder.Services.AddScoped<IProdutoInvestimentoRepository, ProdutoInvestimentoRepository>();
+
+
+builder.Services.AddAutoMapper(typeof(ProdutoInvestimentoProfile));
+
+
+// Registro do FluentValidation moderno
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+
+// Registro dos Validators
+builder.Services.AddValidatorsFromAssemblyContaining<ProdutoInvestimentoRequestValidator>();
 
 // Add services to the container.
 
