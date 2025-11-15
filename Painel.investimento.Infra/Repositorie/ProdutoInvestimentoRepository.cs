@@ -1,6 +1,6 @@
 ﻿using Painel.investimento.Infra.Data;
 using Painel.Investimento.Domain.Models;
-using Painel.Investimento.Domain.Repository;
+using Painel.Investimento.Domain.Repository.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,11 +18,11 @@ namespace Painel.investimento.Infra.Repositorie
             _context = context;
         }
 
-        public async Task<ProdutoInvestimento> AddAsync(ProdutoInvestimento produto)
+        public async Task AddAsync(ProdutoInvestimento produto)
         {
             _context.ProdutosInvestimento.Add(produto);
-            await _context.SaveChangesAsync();
-            return produto;
+            //await _context.SaveChangesAsync();
+            //return produto;
         }
     }
 }

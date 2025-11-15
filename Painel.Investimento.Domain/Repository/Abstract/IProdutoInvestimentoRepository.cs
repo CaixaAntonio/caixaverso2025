@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Painel.Investimento.Domain.Repository
+namespace Painel.Investimento.Domain.Repository.Abstract
 {
     public interface IProdutoInvestimentoRepository
     {
-        Task<ProdutoInvestimento> AddAsync(ProdutoInvestimento produto);
+        Task AddAsync(ProdutoInvestimento produto);
     }
 }

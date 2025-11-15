@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Painel.Investimento.Domain.Repository.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Painel.Investimento.Domain.Models
 {
-    public class ProdutoInvestimento
+    public class ProdutoInvestimento : IAggregateRoot
     {
         public int? Id { get; private set; }
         public string? Nome { get; private set; } // Ex: "CDB", "LCI", "Tesouro Direto"
