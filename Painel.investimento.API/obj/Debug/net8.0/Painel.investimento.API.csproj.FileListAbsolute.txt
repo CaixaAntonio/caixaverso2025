@@ -149,7 +149,6 @@ C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investim
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Painel.investimento.API.props
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\obj\Debug\net8.0\scopedcss\bundle\Painel.investimento.API.styles.css
-C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\obj\Debug\net8.0\Painel.i.2FEDFD8D.Up2Date
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\obj\Debug\net8.0\Painel.investimento.API.dll
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\obj\Debug\net8.0\refint\Painel.investimento.API.dll
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\obj\Debug\net8.0\Painel.investimento.API.pdb
@@ -157,3 +156,4 @@ C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investim
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\obj\Debug\net8.0\ref\Painel.investimento.API.dll
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimento.API\obj\Debug\net8.0\Painel.I.05C40434.Up2Date
