@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "GFZTtdm5MrY9nXaiXKb7/mCRNY9dadiFnJ4C7WRlTh+LNV0wzkJXtsi7bCmqlicacLNIA984Op6okeAmPefvjw==",
+  "success": true,
+  "projectFilePath": "C:\\Desenvolvimento\\Caixa_Verso\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\c159889\\.nuget\\packages\\fluentvalidation\\12.1.0\\fluentvalidation.12.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

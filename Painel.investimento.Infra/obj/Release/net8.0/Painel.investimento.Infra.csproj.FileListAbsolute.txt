@@ -1,0 +1,15 @@
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\bin\Release\net8.0\Painel.investimento.Infra.deps.json
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\bin\Release\net8.0\Painel.investimento.Infra.dll
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\bin\Release\net8.0\Painel.investimento.Infra.pdb
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\bin\Release\net8.0\Painel.Investimento.Domain.dll
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\bin\Release\net8.0\Painel.Investimento.Domain.pdb
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\obj\Release\net8.0\Painel.investimento.Infra.csproj.AssemblyReference.cache
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\obj\Release\net8.0\Painel.investimento.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\obj\Release\net8.0\Painel.investimento.Infra.AssemblyInfoInputs.cache
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\obj\Release\net8.0\Painel.investimento.Infra.AssemblyInfo.cs
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\obj\Release\net8.0\Painel.investimento.Infra.csproj.CoreCompileInputs.cache
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\obj\Release\net8.0\Painel.i.518D0603.Up2Date
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\obj\Release\net8.0\Painel.investimento.Infra.dll
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\obj\Release\net8.0\refint\Painel.investimento.Infra.dll
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\obj\Release\net8.0\Painel.investimento.Infra.pdb
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.Infra\obj\Release\net8.0\ref\Painel.investimento.Infra.dll

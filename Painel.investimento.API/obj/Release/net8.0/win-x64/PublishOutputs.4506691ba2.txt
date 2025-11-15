@@ -1,0 +1,8 @@
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.API\bin\Release\net8.0\win-x64\publish\appsettings.Development.json
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.API\bin\Release\net8.0\win-x64\publish\appsettings.json
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.API\bin\Release\net8.0\win-x64\publish\aspnetcorev2_inprocess.dll
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.API\bin\Release\net8.0\win-x64\publish\Microsoft.Data.SqlClient.SNI.dll
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.API\bin\Release\net8.0\win-x64\publish\Painel.Investimento.Aplication.pdb
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.API\bin\Release\net8.0\win-x64\publish\Painel.investimento.Infra.pdb
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.API\bin\Release\net8.0\win-x64\publish\Painel.Investimento.Domain.pdb
+C:\Desenvolvimento\Caixa_Verso\Painel.investimento.API\bin\Release\net8.0\win-x64\publish\Painel.investimento.API.exe

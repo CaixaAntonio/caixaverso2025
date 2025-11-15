@@ -1,0 +1,11 @@
+C:\Desenvolvimento\Caixa_Verso\Painel.Investimento.Domain\obj\Debug\net8.0\Painel.Investimento.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Desenvolvimento\Caixa_Verso\Painel.Investimento.Domain\obj\Debug\net8.0\Painel.Investimento.Domain.AssemblyInfoInputs.cache
+C:\Desenvolvimento\Caixa_Verso\Painel.Investimento.Domain\obj\Debug\net8.0\Painel.Investimento.Domain.AssemblyInfo.cs
+C:\Desenvolvimento\Caixa_Verso\Painel.Investimento.Domain\obj\Debug\net8.0\Painel.Investimento.Domain.csproj.CoreCompileInputs.cache
+C:\Desenvolvimento\Caixa_Verso\Painel.Investimento.Domain\bin\Debug\net8.0\Painel.Investimento.Domain.deps.json
+C:\Desenvolvimento\Caixa_Verso\Painel.Investimento.Domain\bin\Debug\net8.0\Painel.Investimento.Domain.dll
+C:\Desenvolvimento\Caixa_Verso\Painel.Investimento.Domain\bin\Debug\net8.0\Painel.Investimento.Domain.pdb
+C:\Desenvolvimento\Caixa_Verso\Painel.Investimento.Domain\obj\Debug\net8.0\Painel.Investimento.Domain.dll
+C:\Desenvolvimento\Caixa_Verso\Painel.Investimento.Domain\obj\Debug\net8.0\refint\Painel.Investimento.Domain.dll
+C:\Desenvolvimento\Caixa_Verso\Painel.Investimento.Domain\obj\Debug\net8.0\Painel.Investimento.Domain.pdb
+C:\Desenvolvimento\Caixa_Verso\Painel.Investimento.Domain\obj\Debug\net8.0\ref\Painel.Investimento.Domain.dll
