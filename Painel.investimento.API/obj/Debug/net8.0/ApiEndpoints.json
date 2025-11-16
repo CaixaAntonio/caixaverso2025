@@ -147,6 +147,74 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Painel.Investimento.API.Controllers.PerfilProdutoController",
+    "Method": "Post",
+    "RelativePath": "api/perfilproduto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Painel.Investimento.Domain.Dtos.PerfilProdutoRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.PerfilProdutoController",
+    "Method": "GetAll",
+    "RelativePath": "api/perfilproduto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.PerfilProdutoController",
+    "Method": "GetByIds",
+    "RelativePath": "api/perfilproduto/{perfilDeRiscoId}/{produtoInvestimentoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "perfilDeRiscoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "produtoInvestimentoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.PerfilProdutoController",
+    "Method": "Delete",
+    "RelativePath": "api/perfilproduto/{perfilDeRiscoId}/{produtoInvestimentoId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "perfilDeRiscoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "produtoInvestimentoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Painel.Investimento.API.Controllers.ProdutoInvestimentoController",
     "Method": "Post",
     "RelativePath": "api/produtoinvestimento",

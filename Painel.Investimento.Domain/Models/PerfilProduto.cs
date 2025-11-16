@@ -1,17 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Painel.Investimento.Domain.Repository.Abstract;
 
 namespace Painel.Investimento.Domain.Models
 {
-    public class PerfilProduto
+    public class PerfilProduto : IAggregateRoot
     {
-        public int? PerfilDeRiscoId { get; set; }
-        public PerfilDeRisco? PerfilDeRisco { get; set; }
+        public int PerfilDeRiscoId { get; private set; }
+        public PerfilDeRisco PerfilDeRisco { get; private set; }
 
-        public int? ProdutoInvestimentoId { get; set; }
-        public ProdutoInvestimento? ProdutoInvestimento { get; set; }
+        public int ProdutoInvestimentoId { get; private set; }
+        public ProdutoInvestimento ProdutoInvestimento { get; private set; }
+
+        private PerfilProduto() { } // EF Core
+
+        public PerfilProduto(int perfilDeRiscoId, int produtoInvestimentoId)
+        {
+            if (perfilDeRiscoId <= 0)
+                throw new ArgumentException("Perfil de risco inválido.", nameof(perfilDeRiscoId));
+
+            if (produtoInvestimentoId <= 0)
+                throw new ArgumentException("Produto de investimento inválido.", nameof(produtoInvestimentoId));
+
+            PerfilDeRiscoId = perfilDeRiscoId;
+            ProdutoInvestimentoId = produtoInvestimentoId;
+        }
     }
 }

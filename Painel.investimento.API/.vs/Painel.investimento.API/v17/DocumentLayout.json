@@ -3,19 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.investimento.API.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.api\\controllers\\produtoinvestimentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.investimento.API.csproj|solutionrelative:controllers\\produtoinvestimentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.Investimento.API.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.Investimento.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.investimento.API.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.api\\viewmodels\\validators\\produtoinvestimentorequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.investimento.API.csproj|solutionrelative:viewmodels\\validators\\produtoinvestimentorequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{186D8410-68E2-4DA6-ADBF-020FCC3F4570}|..\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.infra\\repositorie\\perfilprodutorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{186D8410-68E2-4DA6-ADBF-020FCC3F4570}|..\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.infra\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE24109B-5994-41B5-9345-C456438FFBD0}|..\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.domain\\models\\perfilderisco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.investimento.API.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.investimento.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.Investimento.API.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.api\\viewmodels\\validators\\perfilprodutorequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.Investimento.API.csproj|solutionrelative:viewmodels\\validators\\perfilprodutorequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.Investimento.API.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.api\\controllers\\perfilprodutocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.Investimento.API.csproj|solutionrelative:controllers\\perfilprodutocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,58 +28,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProdutoInvestimentoController.cs",
-              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Controllers\\ProdutoInvestimentoController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ProdutoInvestimentoController.cs",
-              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Controllers\\ProdutoInvestimentoController.cs",
-              "RelativeToolTip": "Controllers\\ProdutoInvestimentoController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAIwCwAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T19:25:08.8Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProdutoInvestimentoRequestValidator.cs",
-              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\ViewModels\\Validators\\ProdutoInvestimentoRequestValidator.cs",
-              "RelativeDocumentMoniker": "ViewModels\\Validators\\ProdutoInvestimentoRequestValidator.cs",
-              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\ViewModels\\Validators\\ProdutoInvestimentoRequestValidator.cs",
-              "RelativeToolTip": "ViewModels\\Validators\\ProdutoInvestimentoRequestValidator.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAcwCwAAAAAAAAAAAAAAA==",
+              "Title": "PerfilProdutoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.Infra\\Repositorie\\PerfilProdutoRepository.cs",
+              "RelativeDocumentMoniker": "..\\Painel.investimento.Infra\\Repositorie\\PerfilProdutoRepository.cs",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.Infra\\Repositorie\\PerfilProdutoRepository.cs",
+              "RelativeToolTip": "..\\Painel.investimento.Infra\\Repositorie\\PerfilProdutoRepository.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAuwAwAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T19:16:47.411Z",
+              "WhenOpened": "2025-11-16T20:57:59.742Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowC8AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAewBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T19:16:35.486Z",
+              "WhenOpened": "2025-11-16T20:56:06.023Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.Infra\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "..\\Painel.investimento.Infra\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.Infra\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "..\\Painel.investimento.Infra\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwBoAAAAwAAAAAAAAAA==",
+              "Title": "PerfilDeRisco.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Models\\PerfilDeRisco.cs",
+              "RelativeDocumentMoniker": "..\\Painel.Investimento.Domain\\Models\\PerfilDeRisco.cs",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Models\\PerfilDeRisco.cs",
+              "RelativeToolTip": "..\\Painel.Investimento.Domain\\Models\\PerfilDeRisco.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAIwA4AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T19:16:21.809Z",
+              "WhenOpened": "2025-11-16T20:48:19.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PerfilProdutoRequestValidator.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\ViewModels\\Validators\\PerfilProdutoRequestValidator.cs",
+              "RelativeDocumentMoniker": "ViewModels\\Validators\\PerfilProdutoRequestValidator.cs",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\ViewModels\\Validators\\PerfilProdutoRequestValidator.cs",
+              "RelativeToolTip": "ViewModels\\Validators\\PerfilProdutoRequestValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T20:44:37.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PerfilProdutoController.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Controllers\\PerfilProdutoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PerfilProdutoController.cs",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Controllers\\PerfilProdutoController.cs",
+              "RelativeToolTip": "Controllers\\PerfilProdutoController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T20:42:46.72Z",
               "EditorCaption": ""
             }
           ]

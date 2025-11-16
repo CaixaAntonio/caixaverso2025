@@ -15,6 +15,8 @@ namespace Painel.Investimento.Domain.Models
         public string Garantia { get; private set; }
         public string Descricao { get; private set; }
 
+        public ICollection<PerfilProduto> PerfilProdutos { get; private set; } = new List<PerfilProduto>();
+
         private ProdutoInvestimento() { } // EF Core
 
         public ProdutoInvestimento(string nome, string tipoPerfil, decimal rentabilidadeAnual, int risco,

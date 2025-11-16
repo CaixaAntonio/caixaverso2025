@@ -11,6 +11,8 @@ using Painel.Investimento.Aplication.Repository.Abstract;
 using Painel.Investimento.Infra.Repositorie;
 using Painel.Investimento.API.Mapper;
 using Painel.Investimento.API.ViewModels.Validators;
+using Painel.Investimento.Infra.Repository;
+using Painel.Investimento.API.Mappings;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,12 +25,18 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // UseCases
 builder.Services.AddScoped<ProdutoInvestimentoUseCase>();
 builder.Services.AddScoped<ClienteUseCase>();
+builder.Services.AddScoped<PerfilProdutoUseCase>();
+
 //Repository
+
+builder.Services.AddScoped<IPerfilProdutoRepository, PerfilProdutoRepository>();
 builder.Services.AddScoped<IProdutoInvestimentoRepository, ProdutoInvestimentoRepository>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAutoMapper(typeof(ProdutoInvestimentoProfile));
+builder.Services.AddAutoMapper(typeof(PerfilProdutoProfile));
+
 
 
 // Registro do FluentValidation moderno

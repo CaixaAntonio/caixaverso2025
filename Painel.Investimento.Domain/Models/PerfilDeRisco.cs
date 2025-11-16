@@ -10,6 +10,8 @@ namespace Painel.Investimento.Domain.Models
         public int PontuacaoMaxima { get; private set; }
         public string Descricao { get; private set; }
 
+        public ICollection<PerfilProduto> PerfilProdutos { get; private set; } = new List<PerfilProduto>();
+
         private PerfilDeRisco() { } // EF Core
 
         public PerfilDeRisco(int id, string nome, int pontuacaoMinima, int pontuacaoMaxima, string descricao)

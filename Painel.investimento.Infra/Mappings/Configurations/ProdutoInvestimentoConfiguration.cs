@@ -11,6 +11,9 @@ namespace Painel.Investimento.Infra.Configurations
             builder.ToTable("ProdutoInvestimento");
             builder.HasKey(p => p.Id);
 
+            builder.Property(p => p.Id)
+                   .ValueGeneratedOnAdd();
+
             builder.Property(p => p.Nome)
                    .HasMaxLength(150)
                    .IsRequired();
@@ -24,23 +27,21 @@ namespace Painel.Investimento.Infra.Configurations
                    .IsRequired();
 
             builder.Property(p => p.Risco)
-                   .IsRequired(); // int, escala 1–100
+                   .IsRequired();
 
             builder.Property(p => p.Liquidez)
                    .HasMaxLength(50)
                    .IsRequired();
 
             builder.Property(p => p.Tributacao)
-                   .HasMaxLength(100)
-                   .IsRequired();
+                   .HasMaxLength(100); // opcional
 
             builder.Property(p => p.Garantia)
-                   .HasMaxLength(100)
-                   .IsRequired();
+                   .HasMaxLength(100); // opcional
 
             builder.Property(p => p.Descricao)
-                   .HasMaxLength(500)
-                   .IsRequired();
+                   .HasMaxLength(500); // opcional
         }
+
     }
 }

@@ -17,6 +17,8 @@ namespace Painel.investimento.Infra.Data
         public DbSet<PerfilDeRisco> PerfisDeRisco { get; set; }
         public DbSet<Investimentos> Investimentos { get; set; }
         public DbSet<ProdutoInvestimento> ProdutosInvestimento { get; set; }
+        public DbSet<PerfilProduto> PerfilProdutos { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,6 +27,7 @@ namespace Painel.investimento.Infra.Data
             modelBuilder.ApplyConfiguration(new PerfilDeRiscoConfiguration());
             modelBuilder.ApplyConfiguration(new InvestimentosConfiguration());
             modelBuilder.ApplyConfiguration(new ProdutoInvestimentoConfiguration());
+            modelBuilder.ApplyConfiguration(new PerfilProdutoConfiguration());
         }
 
     }
