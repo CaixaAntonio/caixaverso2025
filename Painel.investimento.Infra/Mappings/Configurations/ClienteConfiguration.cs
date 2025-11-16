@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Painel.Investimento.Domain.Models;
 
 namespace Painel.investimento.Infra.Mappings.Configurations
 {
@@ -7,7 +8,7 @@ namespace Painel.investimento.Infra.Mappings.Configurations
     {
         public void Configure(EntityTypeBuilder<Cliente> builder)
         {
-            builder.ToTable("Clientes");
+            builder.ToTable("Cliente");
 
             builder.HasKey(c => c.Id);
 
@@ -68,11 +69,10 @@ namespace Painel.investimento.Infra.Mappings.Configurations
                    .HasForeignKey(e => e.ClienteId)
                    .OnDelete(DeleteBehavior.Cascade);
 
-
-            builder.HasOne(c => c.PerfilDeRisco)
-                   .WithMany() // ou .WithMany("Clientes") se quiser navegação inversa
-                   .HasForeignKey(c => c.PerfilDeRiscoId)
-                   .OnDelete(DeleteBehavior.Restrict);
+            builder.Property(c => c.PerfilDeRiscoId)
+                  .IsRequired()
+                  .HasMaxLength(150);
+            
 
 
 

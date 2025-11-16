@@ -1,12 +1,11 @@
 ﻿using FluentValidation;
 using Painel.Investimento.Domain.Dtos;
 
-
 namespace Painel.Investimento.Application.Validators
 {
-    public class RegistrarClienteViewModelValidator : AbstractValidator<RegistrarClienteDto>
+    public class ClienteViewModelValidator : AbstractValidator<ClienteRequestDto>
     {
-        public RegistrarClienteViewModelValidator()
+        public ClienteViewModelValidator()
         {
             // Nome e Sobrenome obrigatórios
             RuleFor(x => x.Nome)
@@ -36,19 +35,8 @@ namespace Painel.Investimento.Application.Validators
             RuleFor(x => x.DataDeNascimento)
                 .LessThan(DateTime.Today).WithMessage("Data de nascimento não pode ser no futuro.");
 
-            // Endereço obrigatório
-            RuleFor(x => x.Logradouro).NotEmpty().WithMessage("Logradouro é obrigatório.");
-            RuleFor(x => x.Numero).NotEmpty().WithMessage("Número é obrigatório.");
-            RuleFor(x => x.Bairro).NotEmpty().WithMessage("Bairro é obrigatório.");
-            RuleFor(x => x.Cidade).NotEmpty().WithMessage("Cidade é obrigatória.");
-            RuleFor(x => x.Estado)
-                .NotEmpty().WithMessage("Estado é obrigatório.");
-
-            RuleFor(x => x.Cep)
-                .NotEmpty().WithMessage("CEP é obrigatório.");               
-
             // Perfil de risco obrigatório
-            RuleFor(x => x.PerfilDeRiscoNome)
+            RuleFor(x => x.PerfilDeRiscoId)
                 .NotEmpty().WithMessage("Perfil de risco é obrigatório.");
         }
     }

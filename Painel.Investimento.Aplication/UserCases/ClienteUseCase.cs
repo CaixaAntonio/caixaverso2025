@@ -1,52 +1,61 @@
 ﻿using Painel.Investimento.Aplication.Repository.Abstract;
-using Painel.Investimento.Domain.Dtos;
 using Painel.Investimento.Domain.Models;
+using Painel.Investimento.Domain.Repository.Abstract;
 using Painel.Investimento.Domain.Valueobjects;
 
 namespace Painel.Investimento.Aplication.UserCases
 {
-    public class ClienteUseCase: IRegistrarClienteAplicationRepository
+    public class ClienteUseCase
     {
-        public async Task AddAsync(RegistrarClienteDto input)
+        private readonly IClienteRepository _repository;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public ClienteUseCase(IClienteRepository repository, IUnitOfWork unitOfWork)
         {
-            var email = new Email(input.Email);
-            var celular = new Celular(input.Celular);
-            var cpf = new Cpf(input.Cpf);
-            var dataNascimento = new DataDeNascimento(input.DataDeNascimento);
-            var endereco = new Endereco(
-                input.Logradouro,
-                input.Numero,
-                input.Complemento,
-                input.Bairro,
-                input.Cidade,
-                new UnidadeFederativa(input.Estado.Sigla, input.Estado.Nome),
-                new Cep(input.Cep.Valor)
-            );
-            var perfilDeRisco = new PerfilDeRisco(
-                input.PerfilDeRiscoId,
-                input.PerfilDeRiscoNome,
-                input.PontuacaoMinima,
-                input.PontuacaoMaxima,
-                input.DescricaoPerfilDeRisco
-               
-            );
+            _repository = repository;
+            _unitOfWork = unitOfWork;
+        }
 
-            var cliente = new Cliente(
-                id: 0,
-                nome: input.Nome,
-                sobrenome: input.Sobrenome,
-                email: email,
-                celular: celular,
-                cpf: cpf,
-                dataDeNascimento: dataNascimento,
-                perfilDeRisco: perfilDeRisco
-            );
+        public async Task<Cliente> ExecuteAsync(
+            int id,
+            string nome,
+            string sobrenome,
+            Email email,
+            Celular celular,
+            Cpf cpf,
+            DataDeNascimento dataDeNascimento,
+            int perfilDeRiscoId)
+        {
+            var cliente = new Cliente(id, nome, sobrenome, email, celular, cpf, dataDeNascimento, perfilDeRiscoId);
 
-            cliente.AdicionarEndereco(endereco);
-            
-            // Persistir no banco
-            //await _context.Clientes.AddAsync(cliente);
-           // await _context.SaveChangesAsync();
+            await _repository.AddAsync(cliente);
+            await _unitOfWork.CommitAsync();
+
+            return cliente;
+        }
+
+        public async Task<Cliente?> ObterPorIdAsync(int id) => await _repository.GetByIdAsync(id);
+
+        public async Task<IEnumerable<Cliente>> ListarTodosAsync() => await _repository.GetAllAsync();
+
+        public async Task<Cliente?> AtualizarPerfilAsync(int id, int novoPerfilDeRiscoId)
+        {
+            var cliente = await _repository.GetByIdAsync(id);
+            if (cliente == null) return null;
+
+            cliente.AjustarPerfil(novoPerfilDeRiscoId);
+            await _unitOfWork.CommitAsync();
+            return cliente;
+        }
+
+        public async Task<bool> RemoverAsync(int id)
+        {
+            var cliente = await _repository.GetByIdAsync(id);
+            if (cliente == null) return false;
+
+            _repository.Remove(cliente);
+            await _unitOfWork.CommitAsync();
+            return true;
         }
     }
 }

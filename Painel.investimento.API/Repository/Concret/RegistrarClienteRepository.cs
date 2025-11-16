@@ -8,9 +8,9 @@ namespace Painel.investimento.API.Repository.Concret
 {
     public class RegistrarClienteRepository 
     {
-        private readonly IValidator<RegistrarClienteDto> _validator;
+        private readonly IValidator<ClienteRequestDto> _validator;
 
-        public RegistrarClienteRepository(IValidator<RegistrarClienteDto> validator)
+        public RegistrarClienteRepository(IValidator<ClienteRequestDto> validator)
         {
             _validator = validator;
         }

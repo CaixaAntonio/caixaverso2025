@@ -5,6 +5,6 @@ namespace Painel.investimento.API.Repository.Abstract
 {
     public interface IRegistrarClienteRepository
     {
-        Task AddAsync(RegistrarClienteDto input);
+        Task AddAsync(ClienteRequestDto input);
     }
 }
