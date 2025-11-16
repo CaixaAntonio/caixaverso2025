@@ -1,8 +1,9 @@
-﻿using Painel.Investimento.Domain.Valueobjects;
+﻿using Painel.Investimento.Domain.Repository.Abstract;
+using Painel.Investimento.Domain.Valueobjects;
 
 namespace Painel.Investimento.Domain.Models
 {
-    public sealed class Cliente
+    public sealed class Cliente : IAggregateRoot
     {
         public int Id { get; private set; }
         public string Nome { get; private set; }
@@ -56,5 +57,23 @@ namespace Painel.Investimento.Domain.Models
 
             PerfilDeRiscoId = novoPerfilDeRiscoId;
         }
+
+        public void AtualizarEndereco(int enderecoId, string logradouro, string numero, string complemento,
+                                      string bairro, string cidade, string estado, string cep)
+        {
+            var endereco = Enderecos.FirstOrDefault(e => e.Id == enderecoId);
+            if (endereco == null) throw new InvalidOperationException("Endereço não encontrado.");
+
+            endereco.Atualizar(logradouro, numero, complemento, bairro, cidade, estado, cep);
+        }
+
+        public void RemoverEndereco(int enderecoId)
+        {
+            var endereco = Enderecos.FirstOrDefault(e => e.Id == enderecoId);
+            if (endereco != null)
+                Enderecos.Remove(endereco);
+        }
+
+
     }
 }

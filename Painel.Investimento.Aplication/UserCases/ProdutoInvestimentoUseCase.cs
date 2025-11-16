@@ -14,9 +14,27 @@ namespace Painel.Investimento.Aplication.UserCases
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<ProdutoInvestimento> ExecuteAsync(string nome, string tipo, decimal rentabilidadeAnual, int risco, string descricao)
+        // ✅ Criar novo produto
+        public async Task<ProdutoInvestimento> ExecuteAsync(
+            string nome,
+            string tipoPerfil,
+            decimal rentabilidadeAnual,
+            int risco,
+            string liquidez,
+            string tributacao,
+            string garantia,
+            string descricao)
         {
-            var produto = new ProdutoInvestimento(nome, tipo, rentabilidadeAnual, risco, descricao);
+            var produto = new ProdutoInvestimento(
+                nome,
+                tipoPerfil,
+                rentabilidadeAnual,
+                risco,
+                liquidez,
+                tributacao,
+                garantia,
+                descricao
+            );
 
             await _repository.AddAsync(produto);
             await _unitOfWork.CommitAsync();
@@ -24,30 +42,49 @@ namespace Painel.Investimento.Aplication.UserCases
             return produto;
         }
 
+        // ✅ Obter por Id
         public async Task<ProdutoInvestimento?> ObterPorIdAsync(int id)
         {
             return await _repository.GetByIdAsync(id);
         }
 
+        // ✅ Listar todos
         public async Task<IEnumerable<ProdutoInvestimento>> ListarTodosAsync()
         {
             return await _repository.GetAllAsync();
         }
 
-        public async Task<ProdutoInvestimento?> AtualizarAsync(int id, string nome, string tipo, decimal? rentabilidadeAnual, int? risco, string descricao)
+        // ✅ Atualizar produto
+        public async Task<ProdutoInvestimento?> AtualizarAsync(
+            int id,
+            string nome,
+            string tipoPerfil,
+            decimal? rentabilidadeAnual,
+            int? risco,
+            string liquidez,
+            string tributacao,
+            string garantia,
+            string descricao)
         {
             var produto = await _repository.GetByIdAsync(id);
             if (produto == null) return null;
 
-            produto.AtualizarProdutoInvestimento(nome, tipo, rentabilidadeAnual ?? produto.RentabilidadeAnual, risco ?? produto.Risco, descricao);
-            // aqui você pode criar outros métodos na entidade para atualizar nome, tipo, risco etc.
+            produto.AtualizarProdutoInvestimento(
+                nome,
+                tipoPerfil,
+                rentabilidadeAnual ?? produto.RentabilidadeAnual,
+                risco ?? produto.Risco,
+                liquidez,
+                tributacao,
+                garantia,
+                descricao
+            );
 
             await _unitOfWork.CommitAsync();
             return produto;
         }
 
-       
-
+        // ✅ Remover produto
         public async Task<bool> RemoverAsync(int id)
         {
             var produto = await _repository.GetByIdAsync(id);
@@ -57,9 +94,5 @@ namespace Painel.Investimento.Aplication.UserCases
             await _unitOfWork.CommitAsync();
             return true;
         }
-
-
-
-
     }
 }

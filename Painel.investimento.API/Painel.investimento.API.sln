@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Painel.investimento.API", "Painel.investimento.API.csproj", "{332CFA5A-2349-49CE-9730-B055E3648252}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Painel.Investimento.API", "Painel.Investimento.API.csproj", "{332CFA5A-2349-49CE-9730-B055E3648252}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Painel.Investimento.Aplication", "..\Painel.Investimento.Aplication\Painel.Investimento.Aplication.csproj", "{C6AE96A7-6E35-491F-BDBE-5A61A57471DD}"
 EndProject
@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Painel.Investimento.Domain"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Painel.investimento.Infra", "..\Painel.investimento.Infra\Painel.investimento.Infra.csproj", "{186D8410-68E2-4DA6-ADBF-020FCC3F4570}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Painel.Investimentos.Testes", "..\Painel.Investimentos.Testes\Painel.Investimentos.Testes.csproj", "{7A1B0465-71A0-4510-9580-80F42CB59497}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Painel.Investimentos.Testes", "..\Painel.Investimentos.Testes\Painel.Investimentos.Testes.csproj", "{7A1B0465-71A0-4510-9580-80F42CB59497}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

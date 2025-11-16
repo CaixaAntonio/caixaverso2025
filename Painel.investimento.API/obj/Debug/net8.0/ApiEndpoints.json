@@ -27,6 +27,74 @@
   },
   {
     "ContainingType": "Painel.Investimento.API.Controllers.ClienteController",
+    "Method": "AdicionarEndereco",
+    "RelativePath": "api/cliente/{clienteId}/enderecos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Painel.Investimento.Domain.Dtos.EnderecoRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.ClienteController",
+    "Method": "AtualizarEndereco",
+    "RelativePath": "api/cliente/{clienteId}/enderecos/{enderecoId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "enderecoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Painel.Investimento.Domain.Dtos.EnderecoRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.ClienteController",
+    "Method": "RemoverEndereco",
+    "RelativePath": "api/cliente/{clienteId}/enderecos/{enderecoId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "enderecoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.ClienteController",
     "Method": "GetById",
     "RelativePath": "api/cliente/{id}",
     "HttpMethod": "GET",

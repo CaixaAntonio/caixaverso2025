@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "Painel.investimento.API/1.0.0": {
+      "Painel.Investimento.API/1.0.0": {
         "dependencies": {
           "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
@@ -21,7 +21,7 @@
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
-          "Painel.investimento.API.dll": {}
+          "Painel.Investimento.API.dll": {}
         }
       },
       "AutoMapper/12.0.1": {
@@ -982,7 +982,7 @@
     }
   },
   "libraries": {
-    "Painel.investimento.API/1.0.0": {
+    "Painel.Investimento.API/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

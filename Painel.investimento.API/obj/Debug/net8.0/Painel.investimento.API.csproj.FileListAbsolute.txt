@@ -156,4 +156,4 @@ C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investim
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\obj\Debug\net8.0\ref\Painel.investimento.API.dll
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\obj\Debug\net8.0\Painel.i.2FEDFD8D.Up2Date
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\obj\Debug\net8.0\Painel.I.05C40434.Up2Date

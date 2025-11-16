@@ -1,13 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Painel.Investimento.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Painel.investimento.Infra.Mappings.Configurations
+namespace Painel.Investimento.Infra.Configurations
 {
     public class ProdutoInvestimentoConfiguration : IEntityTypeConfiguration<ProdutoInvestimento>
     {
@@ -16,11 +11,36 @@ namespace Painel.investimento.Infra.Mappings.Configurations
             builder.ToTable("ProdutoInvestimento");
             builder.HasKey(p => p.Id);
 
-            builder.Property(p => p.Nome).HasMaxLength(100).IsRequired();
-            builder.Property(p => p.Tipo).HasMaxLength(50).IsRequired();
-            builder.Property(p => p.RentabilidadeAnual).HasColumnType("decimal(18,4)").IsRequired();
-            builder.Property(p => p.Risco).IsRequired();
-            builder.Property(p => p.Descricao).HasMaxLength(250);
+            builder.Property(p => p.Nome)
+                   .HasMaxLength(150)
+                   .IsRequired();
+
+            builder.Property(p => p.TipoPerfil)
+                   .HasMaxLength(50)
+                   .IsRequired();
+
+            builder.Property(p => p.RentabilidadeAnual)
+                   .HasColumnType("decimal(18,2)")
+                   .IsRequired();
+
+            builder.Property(p => p.Risco)
+                   .IsRequired(); // int, escala 1–100
+
+            builder.Property(p => p.Liquidez)
+                   .HasMaxLength(50)
+                   .IsRequired();
+
+            builder.Property(p => p.Tributacao)
+                   .HasMaxLength(100)
+                   .IsRequired();
+
+            builder.Property(p => p.Garantia)
+                   .HasMaxLength(100)
+                   .IsRequired();
+
+            builder.Property(p => p.Descricao)
+                   .HasMaxLength(500)
+                   .IsRequired();
         }
     }
 }

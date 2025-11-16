@@ -84,5 +84,65 @@ namespace Painel.Investimento.API.Controllers
 
             return NoContent();
         }
+
+
+
+        // ✅ Adicionar Endereço
+        [HttpPost("{clienteId}/enderecos")]
+        public async Task<IActionResult> AdicionarEndereco(int clienteId, [FromBody] EnderecoRequest dto)
+        {
+            // Usa AutoMapper para converter DTO → Entidade
+            var endereco = _mapper.Map<Endereco>(dto);
+            endereco = new Endereco(
+                endereco.Logradouro,
+                endereco.Numero,
+                endereco.Complemento,
+                endereco.Bairro,
+                endereco.Cidade,
+                endereco.Estado,
+                endereco.Cep,
+                clienteId
+            );
+
+            var cliente = await _useCase.AdicionarEnderecoAsync(clienteId, endereco);
+            if (cliente == null) return NotFound("Cliente não encontrado.");
+
+            // Retorna DTO de resposta
+            var response = _mapper.Map<ClienteResponse>(cliente);
+            return Ok(response);
+        }
+
+        // ✅ Atualizar Endereço
+        [HttpPut("{clienteId}/enderecos/{enderecoId}")]
+        public async Task<IActionResult> AtualizarEndereco(int clienteId, int enderecoId, [FromBody] EnderecoRequest dto)
+        {
+            var cliente = await _useCase.AtualizarEnderecoAsync(
+                clienteId,
+                enderecoId,
+                dto.Logradouro,
+                dto.Numero,
+                dto.Complemento,
+                dto.Bairro,
+                dto.Cidade,
+                dto.Estado,
+                dto.Cep
+            );
+
+            if (cliente == null) return NotFound("Cliente ou endereço não encontrado.");
+
+            var response = _mapper.Map<ClienteResponse>(cliente);
+            return Ok(response);
+        }
+
+        // ✅ Remover Endereço
+        [HttpDelete("{clienteId}/enderecos/{enderecoId}")]
+        public async Task<IActionResult> RemoverEndereco(int clienteId, int enderecoId)
+        {
+            var cliente = await _useCase.RemoverEnderecoAsync(clienteId, enderecoId);
+            if (cliente == null) return NotFound("Cliente ou endereço não encontrado.");
+
+            var response = _mapper.Map<ClienteResponse>(cliente);
+            return Ok(response);
+        }
     }
 }

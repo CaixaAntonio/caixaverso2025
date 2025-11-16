@@ -19,7 +19,7 @@ namespace Painel.Investimento.API.Controllers
             _mapper = mapper;
         }
 
-        // POST: api/produtoinvestimento
+        // ✅ POST: api/produtoinvestimento
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] ProdutoInvestimentoRequestDto dto)
         {
@@ -27,9 +27,12 @@ namespace Painel.Investimento.API.Controllers
 
             var result = await _useCase.ExecuteAsync(
                 produto.Nome,
-                produto.Tipo,
+                produto.TipoPerfil,
                 produto.RentabilidadeAnual,
                 produto.Risco,
+                produto.Liquidez,
+                produto.Tributacao,
+                produto.Garantia,
                 produto.Descricao
             );
 
@@ -37,7 +40,7 @@ namespace Painel.Investimento.API.Controllers
             return Ok(response);
         }
 
-        // GET: api/produtoinvestimento/{id}
+        // ✅ GET: api/produtoinvestimento/{id}
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -48,7 +51,7 @@ namespace Painel.Investimento.API.Controllers
             return Ok(response);
         }
 
-        // GET: api/produtoinvestimento
+        // ✅ GET: api/produtoinvestimento
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -57,19 +60,21 @@ namespace Painel.Investimento.API.Controllers
             return Ok(response);
         }
 
-        // PUT: api/produtoinvestimento/{id}
+        // ✅ PUT: api/produtoinvestimento/{id}
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Put(int id, [FromBody] ProdutoInvestimentoRequestDto dto)
         {
             var produtoAtualizado = await _useCase.AtualizarAsync(
                  id,
                  dto.Nome!,
-                 dto.Tipo!,
-                 dto.RentabilidadeAnual, // 0m = decimal literal
-                 dto.Risco,               // aqui está ok, porque Risco é int?
+                 dto.TipoPerfil!,
+                 dto.RentabilidadeAnual,
+                 dto.Risco,
+                 dto.Liquidez!,
+                 dto.Tributacao!,
+                 dto.Garantia!,
                  dto.Descricao!
              );
-
 
             if (produtoAtualizado == null) return NotFound();
 
@@ -77,7 +82,7 @@ namespace Painel.Investimento.API.Controllers
             return Ok(response);
         }
 
-        // DELETE: api/produtoinvestimento/{id}
+        // ✅ DELETE: api/produtoinvestimento/{id}
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {

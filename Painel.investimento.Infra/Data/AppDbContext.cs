@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Painel.investimento.Infra.Mappings.Configurations;
 using Painel.Investimento.Domain.Models;
+using Painel.Investimento.Infra.Configurations;
 
 namespace Painel.investimento.Infra.Data
 {

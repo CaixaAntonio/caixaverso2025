@@ -57,5 +57,43 @@ namespace Painel.Investimento.Aplication.UserCases
             await _unitOfWork.CommitAsync();
             return true;
         }
+
+        public async Task<Cliente?> AdicionarEnderecoAsync(int clienteId, Endereco endereco)
+        {
+            var cliente = await _repository.GetByIdAsync(clienteId);
+            if (cliente == null) return null;
+
+            cliente.AdicionarEndereco(endereco);
+            await _unitOfWork.CommitAsync();
+            return cliente;
+        }
+
+        public async Task<Cliente?> RemoverEnderecoAsync(int clienteId, int enderecoId)
+        {
+            var cliente = await _repository.GetByIdAsync(clienteId);
+            if (cliente == null) return null;
+
+            cliente.RemoverEndereco(enderecoId);
+            await _unitOfWork.CommitAsync();
+            return cliente;
+        }
+
+        public async Task<Cliente?> AtualizarEnderecoAsync(int clienteId, int enderecoId, string logradouro,
+                                                           string numero, string complemento, string bairro,
+                                                           string cidade, string estado, string cep)
+        {
+            var cliente = await _repository.GetByIdAsync(clienteId);
+            if (cliente == null) return null;
+
+            cliente.AtualizarEndereco(enderecoId, logradouro, numero, complemento, bairro, cidade, estado, cep);
+            await _unitOfWork.CommitAsync();
+            return cliente;
+        }
+
+
+
+
     }
+
+
 }

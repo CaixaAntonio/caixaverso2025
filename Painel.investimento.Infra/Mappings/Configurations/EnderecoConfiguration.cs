@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Painel.Investimento.Domain.Models;
 
 namespace Painel.investimento.Infra.Mappings.Configurations
 {

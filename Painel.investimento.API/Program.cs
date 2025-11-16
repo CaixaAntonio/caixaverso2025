@@ -9,6 +9,8 @@ using FluentValidation;
 using Painel.Investimento.Domain.Repository.Abstract;
 using Painel.Investimento.Aplication.Repository.Abstract;
 using Painel.Investimento.Infra.Repositorie;
+using Painel.Investimento.API.Mapper;
+using Painel.Investimento.API.ViewModels.Validators;
 
 
 var builder = WebApplication.CreateBuilder(args);
