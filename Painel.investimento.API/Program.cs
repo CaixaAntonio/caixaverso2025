@@ -12,6 +12,8 @@ using Painel.Investimento.API.ViewModels.Validators;
 using Painel.Investimento.Aplication.UserCases;
 using Painel.Investimento.Application.Mappings;
 using Painel.Investimento.Application.UserCases;
+using Painel.Investimento.Domain.Models;
+using Painel.Investimento.Domain.Repositories;
 using Painel.Investimento.Domain.Repository.Abstract;
 using Painel.Investimento.Domain.Services;
 using Painel.Investimento.Infra.Auth;
@@ -42,6 +44,8 @@ builder.Services.AddScoped<InvestimentosUseCase>();
 builder.Services.AddScoped<IInvestimentosRepository, InvestimentosRepository>();
 builder.Services.AddScoped<IPerfilProdutoRepository, PerfilProdutoRepository>();
 builder.Services.AddScoped<IProdutoInvestimentoRepository, ProdutoInvestimentoRepository>();
+builder.Services.AddScoped<IInvestimentosRepository, InvestimentosRepository>();
+builder.Services.AddScoped<IPerfilDeRiscoRepository, PerfilDeRiscoRepository>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 
 builder.Services.AddScoped<IAuthService, JwtAuthService>();
@@ -49,13 +53,12 @@ builder.Services.AddScoped<LoginUseCase>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+//AutoMapper
 builder.Services.AddAutoMapper(typeof(ProdutoInvestimentoProfile));
 builder.Services.AddAutoMapper(typeof(PerfilProdutoProfile));
 builder.Services.AddAutoMapper(typeof(InvestimentoProfile));
 builder.Services.AddAutoMapper(typeof(UsuarioProfile));
-
-
-
+builder.Services.AddAutoMapper(typeof(PerfilDeRisco));
 
 
 // Registro do FluentValidation moderno

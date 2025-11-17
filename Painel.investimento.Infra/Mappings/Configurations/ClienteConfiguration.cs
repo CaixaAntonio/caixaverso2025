@@ -72,7 +72,13 @@ namespace Painel.investimento.Infra.Mappings.Configurations
             builder.Property(c => c.PerfilDeRiscoId)
                   .IsRequired()
                   .HasMaxLength(150);
-            
+
+            // Relacionamento com Transacoes
+            builder.HasMany<Transacao>()
+                   .WithOne()
+                   .HasForeignKey(t => t.ClienteId)
+                   .OnDelete(DeleteBehavior.Cascade);
+
 
 
 

@@ -14,7 +14,7 @@ namespace Painel.investimento.Infra.Mappings.Configurations
     {
         public void Configure(EntityTypeBuilder<PerfilDeRisco> builder)
         {
-            builder.ToTable("PerfisDeRisco");
+            builder.ToTable("PerfilDeRisco");
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.Nome).HasMaxLength(50).IsRequired();
