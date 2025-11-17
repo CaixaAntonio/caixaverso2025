@@ -16,6 +16,7 @@ namespace Painel.Investimento.Domain.Models
         public string Descricao { get; private set; }
 
         public ICollection<PerfilProduto> PerfilProdutos { get; private set; } = new List<PerfilProduto>();
+        public ICollection<Investimentos> Investimentos { get; private set; }
 
         private ProdutoInvestimento() { } // EF Core
 

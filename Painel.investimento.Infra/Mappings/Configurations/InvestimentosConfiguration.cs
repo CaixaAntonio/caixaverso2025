@@ -1,29 +1,43 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Painel.Investimento.Domain.Models;
 
-namespace Painel.investimento.Infra.Mappings.Configurations
+namespace Painel.Investimento.Infra.Configurations
 {
     public class InvestimentosConfiguration : IEntityTypeConfiguration<Investimentos>
     {
         public void Configure(EntityTypeBuilder<Investimentos> builder)
         {
             builder.ToTable("Investimentos");
-            builder.HasKey(h => h.Id);
 
-            builder.Property(h => h.Produto).HasMaxLength(100).IsRequired();
-            builder.Property(h => h.ValorInvestido).HasColumnType("decimal(18,2)").IsRequired();
-            builder.Property(h => h.RentabilidadeEsperada).HasColumnType("decimal(5,4)").IsRequired();
+            // ✅ Chave primária
+            builder.HasKey(i => i.Id);
 
-            builder.HasOne(h => h.Cliente)
+            // ✅ Relacionamento com Cliente
+            builder.HasOne(i => i.Cliente)
                    .WithMany(c => c.Investimentos)
-                   .HasForeignKey(h => h.ClienteId)
-                   .OnDelete(DeleteBehavior.Cascade);
+                   .HasForeignKey(i => i.ClienteId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            // ✅ Relacionamento com ProdutoInvestimento
+            builder.HasOne(i => i.ProdutoInvestimento)
+                   .WithMany(p => p.Investimentos)
+                   .HasForeignKey(i => i.ProdutoInvestimentoId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            // ✅ Propriedades
+            builder.Property(i => i.ValorInvestido)
+                   .HasColumnType("decimal(18,2)")
+                   .IsRequired();
+
+            builder.Property(i => i.DataInvestimento)
+                   .IsRequired();
+
+            builder.Property(i => i.PrazoMeses)
+                   .IsRequired(false);
+
+            builder.Property(i => i.Risco)
+                   .IsRequired(false);
         }
     }
 }

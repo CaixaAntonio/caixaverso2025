@@ -9,11 +9,11 @@ namespace Painel.Investimento.Infra.Configurations
         public void Configure(EntityTypeBuilder<ProdutoInvestimento> builder)
         {
             builder.ToTable("ProdutoInvestimento");
+
+            // ✅ Chave primária
             builder.HasKey(p => p.Id);
 
-            builder.Property(p => p.Id)
-                   .ValueGeneratedOnAdd();
-
+            // ✅ Propriedades
             builder.Property(p => p.Nome)
                    .HasMaxLength(150)
                    .IsRequired();
@@ -34,14 +34,28 @@ namespace Painel.Investimento.Infra.Configurations
                    .IsRequired();
 
             builder.Property(p => p.Tributacao)
-                   .HasMaxLength(100); // opcional
+                   .HasMaxLength(100)
+                   .IsRequired();
 
             builder.Property(p => p.Garantia)
-                   .HasMaxLength(100); // opcional
+                   .HasMaxLength(100)
+                   .IsRequired();
 
             builder.Property(p => p.Descricao)
-                   .HasMaxLength(500); // opcional
-        }
+                   .HasMaxLength(500)
+                   .IsRequired();
 
+            // ✅ Relacionamento com PerfilProduto (já existia)
+            builder.HasMany(p => p.PerfilProdutos)
+                   .WithOne(pp => pp.ProdutoInvestimento)
+                   .HasForeignKey(pp => pp.ProdutoInvestimentoId)
+                   .OnDelete(DeleteBehavior.Cascade);
+
+            // ✅ Novo: relacionamento com Investimentos
+            builder.HasMany(p => p.Investimentos)
+                   .WithOne(i => i.ProdutoInvestimento)
+                   .HasForeignKey(i => i.ProdutoInvestimentoId)
+                   .OnDelete(DeleteBehavior.Restrict);
+        }
     }
 }

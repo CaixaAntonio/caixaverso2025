@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Painel.Investimento.Aplication.UserCases;
 using Painel.Investimento.Domain.Dtos;
@@ -45,7 +46,7 @@ namespace Painel.Investimento.API.Controllers
         }
 
         // GET: api/cliente/{id}
-        [HttpGet("{id:int}")]
+        [HttpGet("{id:int}")]             
         public async Task<IActionResult> GetById(int id)
         {
             var cliente = await _useCase.ObterPorIdAsync(id);
@@ -57,6 +58,7 @@ namespace Painel.Investimento.API.Controllers
 
         // GET: api/cliente
         [HttpGet]
+        [Authorize(Roles = "admin")]        
         public async Task<IActionResult> GetAll()
         {
             var clientes = await _useCase.ListarTodosAsync();

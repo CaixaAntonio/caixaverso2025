@@ -1,24 +1,31 @@
+﻿using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Painel.investimento.API.Mapper;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Painel.investimento.Infra.Data;
 using Painel.investimento.Infra.Repositorie;
-using Painel.Investimento.Aplication.UserCases;
-using Painel.investimento.API.ViewModels.Validators;
-using FluentValidation;
-using Painel.Investimento.Domain.Repository.Abstract;
-using Painel.Investimento.Aplication.Repository.Abstract;
-using Painel.Investimento.Infra.Repositorie;
 using Painel.Investimento.API.Mapper;
-using Painel.Investimento.API.ViewModels.Validators;
-using Painel.Investimento.Infra.Repository;
 using Painel.Investimento.API.Mappings;
+using Painel.Investimento.API.ViewModels.Validators;
+using Painel.Investimento.Aplication.UserCases;
+using Painel.Investimento.Application.Mappings;
+using Painel.Investimento.Application.UserCases;
+using Painel.Investimento.Domain.Repository.Abstract;
+using Painel.Investimento.Infra.Repositorie;
+using Painel.Investimento.Infra.Repositories;
+using Painel.Investimento.Infra.Repository;
+using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
+var jwt = builder.Configuration.GetSection("Jwt");
+var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt["Key"]!));
 
-// L� a Connection String do appsettings.json
+
+// Lê a Connection String do appsettings.json
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -26,9 +33,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<ProdutoInvestimentoUseCase>();
 builder.Services.AddScoped<ClienteUseCase>();
 builder.Services.AddScoped<PerfilProdutoUseCase>();
+builder.Services.AddScoped<InvestimentosUseCase>();
 
 //Repository
 
+builder.Services.AddScoped<IInvestimentosRepository, InvestimentosRepository>();
 builder.Services.AddScoped<IPerfilProdutoRepository, PerfilProdutoRepository>();
 builder.Services.AddScoped<IProdutoInvestimentoRepository, ProdutoInvestimentoRepository>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
@@ -36,6 +45,8 @@ builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAutoMapper(typeof(ProdutoInvestimentoProfile));
 builder.Services.AddAutoMapper(typeof(PerfilProdutoProfile));
+builder.Services.AddAutoMapper(typeof(InvestimentoProfile));
+
 
 
 
@@ -48,12 +59,68 @@ builder.Services.AddValidatorsFromAssemblyContaining<ProdutoInvestimentoRequestV
 
 // Add services to the container.
 
+builder.Services
+    .AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.RequireHttpsMetadata = true;
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwt["Issuer"],
+            ValidAudience = jwt["Audience"],
+            IssuerSigningKey = key,
+            ClockSkew = TimeSpan.FromMinutes(2)
+        };
+    });
+
+
+builder.Services.AddAuthorization();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Painel Investimento API", Version = "v1" });
 
+    // ✅ Configuração para JWT
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Insira o token JWT no campo abaixo usando o formato: Bearer {seu token}"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+});
 var app = builder.Build();
+
+app.UseMiddleware<Painel.Investimento.API.Middlewares.ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -64,6 +131,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

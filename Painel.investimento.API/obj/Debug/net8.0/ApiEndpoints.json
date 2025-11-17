@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "Painel.Investimento.API.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Painel.Investimento.API.Controllers.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Painel.Investimento.API.Controllers.ClienteController",
     "Method": "Post",
     "RelativePath": "api/cliente",
@@ -145,6 +161,131 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.InvestimentosController",
+    "Method": "Post",
+    "RelativePath": "api/Investimentos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Painel.Investimento.Application.DTOs.CreateInvestimentoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Painel.Investimento.Application.DTOs.InvestimentoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.InvestimentosController",
+    "Method": "GetById",
+    "RelativePath": "api/Investimentos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Painel.Investimento.Application.DTOs.InvestimentoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.InvestimentosController",
+    "Method": "Put",
+    "RelativePath": "api/Investimentos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Painel.Investimento.Application.DTOs.InvestimentoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Painel.Investimento.Application.DTOs.InvestimentoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.InvestimentosController",
+    "Method": "Delete",
+    "RelativePath": "api/Investimentos/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.InvestimentosController",
+    "Method": "GetByCliente",
+    "RelativePath": "api/Investimentos/cliente/{clienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Painel.Investimento.Application.DTOs.InvestimentoDto, Painel.Investimento.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "Painel.Investimento.API.Controllers.PerfilProdutoController",

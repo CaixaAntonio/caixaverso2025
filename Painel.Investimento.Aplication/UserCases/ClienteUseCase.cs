@@ -1,5 +1,4 @@
-﻿using Painel.Investimento.Aplication.Repository.Abstract;
-using Painel.Investimento.Domain.Models;
+﻿using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repository.Abstract;
 using Painel.Investimento.Domain.Valueobjects;
 
@@ -28,19 +27,19 @@ namespace Painel.Investimento.Aplication.UserCases
         {
             var cliente = new Cliente(id, nome, sobrenome, email, celular, cpf, dataDeNascimento, perfilDeRiscoId);
 
-            await _repository.AddAsync(cliente);
+            await _repository.AdicionarAsync(cliente);
             await _unitOfWork.CommitAsync();
 
             return cliente;
         }
 
-        public async Task<Cliente?> ObterPorIdAsync(int id) => await _repository.GetByIdAsync(id);
+        public async Task<Cliente?> ObterPorIdAsync(int id) => await _repository.ObterPorIdAsync(id);
 
-        public async Task<IEnumerable<Cliente>> ListarTodosAsync() => await _repository.GetAllAsync();
+        public async Task<IEnumerable<Cliente>> ListarTodosAsync() => await _repository.ObterTodosAsync();
 
         public async Task<Cliente?> AtualizarPerfilAsync(int id, int novoPerfilDeRiscoId)
         {
-            var cliente = await _repository.GetByIdAsync(id);
+            var cliente = await _repository.ObterPorIdAsync(id);
             if (cliente == null) return null;
 
             cliente.AjustarPerfil(novoPerfilDeRiscoId);
@@ -50,17 +49,17 @@ namespace Painel.Investimento.Aplication.UserCases
 
         public async Task<bool> RemoverAsync(int id)
         {
-            var cliente = await _repository.GetByIdAsync(id);
+            var cliente = await _repository.ObterPorIdAsync(id);
             if (cliente == null) return false;
 
-            _repository.Remove(cliente);
+            _repository.Remover(cliente);
             await _unitOfWork.CommitAsync();
             return true;
         }
 
         public async Task<Cliente?> AdicionarEnderecoAsync(int clienteId, Endereco endereco)
         {
-            var cliente = await _repository.GetByIdAsync(clienteId);
+            var cliente = await _repository.ObterPorIdAsync(clienteId);
             if (cliente == null) return null;
 
             cliente.AdicionarEndereco(endereco);
@@ -70,7 +69,7 @@ namespace Painel.Investimento.Aplication.UserCases
 
         public async Task<Cliente?> RemoverEnderecoAsync(int clienteId, int enderecoId)
         {
-            var cliente = await _repository.GetByIdAsync(clienteId);
+            var cliente = await _repository.ObterPorIdAsync(clienteId);
             if (cliente == null) return null;
 
             cliente.RemoverEndereco(enderecoId);
@@ -82,7 +81,7 @@ namespace Painel.Investimento.Aplication.UserCases
                                                            string numero, string complemento, string bairro,
                                                            string cidade, string estado, string cep)
         {
-            var cliente = await _repository.GetByIdAsync(clienteId);
+            var cliente = await _repository.ObterPorIdAsync(clienteId);
             if (cliente == null) return null;
 
             cliente.AtualizarEndereco(enderecoId, logradouro, numero, complemento, bairro, cidade, estado, cep);
@@ -90,10 +89,6 @@ namespace Painel.Investimento.Aplication.UserCases
             return cliente;
         }
 
-
-
-
     }
-
 
 }

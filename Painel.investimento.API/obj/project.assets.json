@@ -139,6 +139,25 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "7.1.2"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
         "type": "package",
         "compile": {
@@ -1693,6 +1712,21 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.3": {
+      "sha512": "VsDy8R6/0ushSpUow7m4lB82ovVBnI1e2AtPo1z22pzYzUjqY9QJvaexzqMkwmI3K1CVdT6MweXiWoqCcHrJbA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/8.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.8.0.3.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
@@ -4197,6 +4231,7 @@
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "FluentValidation.AspNetCore >= 11.3.1",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.3",
       "Microsoft.EntityFrameworkCore >= 8.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.0",
@@ -4213,9 +4248,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Painel.investimento.API.csproj",
-      "projectName": "Painel.investimento.API",
-      "projectPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Painel.investimento.API.csproj",
+      "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Painel.Investimento.API.csproj",
+      "projectName": "Painel.Investimento.API",
+      "projectPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Painel.Investimento.API.csproj",
       "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\obj\\",
       "projectStyle": "PackageReference",
@@ -4270,6 +4305,10 @@
           "FluentValidation.AspNetCore": {
             "target": "Package",
             "version": "[11.3.1, )"
+          },
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[8.0.3, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",

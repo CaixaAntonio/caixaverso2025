@@ -13,6 +13,7 @@
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -30,6 +31,11 @@
   <ItemGroup>
     <ProjectReference Include="..\Painel.Investimento.Aplication\Painel.Investimento.Aplication.csproj" />
     <ProjectReference Include="..\Painel.investimento.Infra\Painel.investimento.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repository\Abstract\" />
+    <Folder Include="Repository\Concret\" />
   </ItemGroup>
 
 </Project>

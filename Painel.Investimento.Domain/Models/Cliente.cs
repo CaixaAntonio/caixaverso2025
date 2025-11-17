@@ -13,13 +13,11 @@ namespace Painel.Investimento.Domain.Models
         public Cpf Cpf { get; private set; }
         public Idade Idade { get; private set; }
         public DataDeNascimento DataDeNascimento { get; private set; }
-
-        // ✅ Removido relacionamento com PerfilDeRisco
-        // Se ainda quiser guardar apenas o Id do perfil, mantenha esta property:
+        
         public int PerfilDeRiscoId { get; private set; }
 
-        public ICollection<Endereco> Enderecos { get; private set; } = new List<Endereco>();
-        public ICollection<Investimentos> Investimentos { get; private set; } = new List<Investimentos>();
+        public ICollection<Endereco> Enderecos { get; private set; } = [];
+        public ICollection<Investimentos> Investimentos { get; private set; } = [];
 
         private Cliente() { } // EF Core
 
@@ -41,7 +39,18 @@ namespace Painel.Investimento.Domain.Models
             DataDeNascimento = dataDeNascimento ?? throw new ArgumentNullException(nameof(dataDeNascimento));
             Idade = new Idade(dataDeNascimento.CalcularIdade());
 
+            Investimentos = new List<Investimentos>();
+
             PerfilDeRiscoId = perfilDeRiscoId;
+        }
+
+        // Método de domínio para adicionar investimento
+        public void AdicionarInvestimento(Investimentos investimento)
+        {
+            if (investimento == null)
+                throw new ArgumentNullException(nameof(investimento));
+
+            Investimentos.Add(investimento);
         }
 
         public void AdicionarEndereco(Endereco endereco)

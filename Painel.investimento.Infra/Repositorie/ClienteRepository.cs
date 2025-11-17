@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Painel.Investimento.Aplication.Repository.Abstract;
 using Painel.investimento.Infra.Data;
 using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repository.Abstract;
@@ -15,13 +14,14 @@ namespace Painel.Investimento.Infra.Repositorie
             _context = context;
         }
 
-        public async Task AddAsync(Cliente cliente)
+
+        public async Task AdicionarAsync(Cliente cliente)
         {
             await _context.Clientes.AddAsync(cliente);
             // Não chamamos SaveChanges aqui, pois o UnitOfWork é responsável pelo commit
         }
 
-        public async Task<IEnumerable<Cliente>> GetAllAsync()
+        public async Task<IEnumerable<Cliente>> ObterTodosAsync()
         {
             return await _context.Clientes
                                  .Include(c => c.Enderecos)
@@ -29,7 +29,7 @@ namespace Painel.Investimento.Infra.Repositorie
                                  .ToListAsync();
         }
 
-        public async Task<Cliente?> GetByIdAsync(int id)
+        public async Task<Cliente?> ObterPorIdAsync(int id)
         {
             return await _context.Clientes
                                  .Include(c => c.Enderecos)
@@ -37,10 +37,11 @@ namespace Painel.Investimento.Infra.Repositorie
                                  .FirstOrDefaultAsync(c => c.Id == id);
         }
 
-        public void Remove(Cliente cliente)
+        public void Remover(Cliente cliente)
         {
             _context.Clientes.Remove(cliente);
             // Também não chamamos SaveChanges aqui, o UnitOfWork fará isso
         }
+
     }
 }

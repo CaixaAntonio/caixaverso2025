@@ -1,0 +1,28 @@
+﻿using AutoMapper;
+using Painel.Investimento.Domain.Models;
+using Painel.Investimento.Application.DTOs;
+
+namespace Painel.Investimento.Application.Mappings
+{
+    public class InvestimentoProfile : Profile
+    {
+        public InvestimentoProfile()
+        {
+            // Entidade -> DTO
+            CreateMap<Investimentos, InvestimentoDto>()
+                .ForMember(dest => dest.NomeCliente, opt => opt.MapFrom(src => src.Cliente != null ? src.Cliente.Nome : null))
+                .ForMember(dest => dest.NomeProduto, opt => opt.MapFrom(src => src.ProdutoInvestimento != null ? src.ProdutoInvestimento.Nome : null));
+
+            // DTO -> Entidade (para criação)
+            CreateMap<CreateInvestimentoDto, Investimentos>()
+                .ConstructUsing(dto => new Investimentos(
+                    dto.ClienteId,
+                    dto.ProdutoInvestimentoId,
+                    dto.ValorInvestido,
+                    dto.DataInvestimento,
+                    dto.PrazoMeses,
+                    dto.Risco
+                ));
+        }
+    }
+}
