@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Painel.Investimento.Aplication.UserCases;
-using Painel.Investimento.Application.UseCases;
+using Painel.Investimento.Aplication.UseCaseInvestimentos;
+using Painel.Investimento.Aplication.UseCasesCadastros;
 using Painel.Investimento.Domain.Dtos;
 using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Valueobjects;

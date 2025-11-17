@@ -1,7 +1,7 @@
 ﻿using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repository.Abstract;
 
-namespace Painel.Investimento.Aplication.UserCases
+namespace Painel.Investimento.Aplication.UseCasesProdutos
 {
     public class ProdutoInvestimentoUseCase
     {

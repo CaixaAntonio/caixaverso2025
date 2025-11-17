@@ -11,12 +11,13 @@
         public decimal? ValorInvestido { get; private set; }
         public DateTime? DataInvestimento { get; private set; }
         public int? PrazoMeses { get; private set; }       
-        public int? Risco { get; private set; } // Pontuação para cálculo do perfil
+        public bool Crise { get; private set; } 
+        public decimal? ValorRetirado { get; private set; } 
 
-        private Investimentos() { } 
+        private Investimentos() { }
 
-        public Investimentos(int clienteId, int produtoInvestimentoId, decimal? valorInvestido, DateTime dataInvestimento,
-                             int? prazoMeses, int? risco)
+        public Investimentos(int clienteId, int produtoInvestimentoId, decimal valorInvestido, DateTime dataInvestimento,
+                     int? prazoMeses)
         {
             if (produtoInvestimentoId <= 0)
                 throw new ArgumentException("Produto de investimento inválido.", nameof(produtoInvestimentoId));
@@ -29,14 +30,38 @@
             ValorInvestido = valorInvestido;
             DataInvestimento = dataInvestimento;
             PrazoMeses = prazoMeses;
-            Risco = risco;
+           
+        }
+        public Investimentos(int clienteId, int produtoInvestimentoId, decimal valorInvestido, int? prazoMeses, DateTime dataInvestimento,
+                     bool crise = false, decimal? valorRetirado = null)
+        {
+            if (produtoInvestimentoId <= 0)
+                throw new ArgumentException("Produto de investimento inválido.", nameof(produtoInvestimentoId));
+
+            if (valorRetirado <= 0)
+                throw new ArgumentException("Valor investido deve ser maior que zero.", nameof(valorRetirado));
+
+            ClienteId = clienteId;
+            ProdutoInvestimentoId = produtoInvestimentoId;
+            ValorInvestido = valorInvestido;
+            DataInvestimento = dataInvestimento;
+            PrazoMeses = prazoMeses;
+            Crise = crise;
+            ValorRetirado = valorRetirado;
         }
 
         public decimal CalcularValorFinal()
         {
-            // ⚠️ Como RentabilidadeEsperada foi removida, 
-            // esse cálculo deve ser ajustado futuramente para usar dados do ProdutoInvestimento.
-            return ValorInvestido ?? 0;
+            var valorBase = ValorInvestido ?? 0;
+
+            if (ValorRetirado.HasValue)
+                valorBase -= ValorRetirado.Value;
+
+            if (Crise)
+                valorBase *= 0.9m; // exemplo: reduzir 10% em caso de crise
+
+            return valorBase;
         }
+
     }
 }

@@ -30,6 +30,14 @@ namespace Painel.Investimento.Infra.Repositories
                                  .ToListAsync();
         }
 
+        public async Task<IEnumerable<Investimentos>> ObterInvestimentOldPorIdAsync(int clienteId, int produtoInvestID)
+        {
+            return await _context.Investimentos
+                                 .Include(i => i.ProdutoInvestimento)
+                                 .Where(i => i.ClienteId == clienteId && i.ProdutoInvestimentoId == produtoInvestID)
+                                 .ToListAsync();
+        }
+
         public async Task<IEnumerable<Investimentos>> ObterTodosAsync()
         {
             return await _context.Investimentos

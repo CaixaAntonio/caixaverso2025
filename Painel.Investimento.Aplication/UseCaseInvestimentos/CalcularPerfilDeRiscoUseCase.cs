@@ -3,7 +3,7 @@ using Painel.Investimento.Domain.Repositories;
 using Painel.Investimento.Domain.Repository.Abstract;
 using Painel.Investimento.Domain.Services;
 
-namespace Painel.Investimento.Application.UseCases
+namespace Painel.Investimento.Aplication.UseCaseInvestimentos
 {
     public class CalcularPerfilDeRiscoUseCase
     {
@@ -46,8 +46,8 @@ namespace Painel.Investimento.Application.UseCases
                 // Peso pelo valor investido
                 if (inv.ValorInvestido.HasValue)
                 {
-                    if (inv.ValorInvestido.Value >= 10000) score += 20;
-                    else if (inv.ValorInvestido.Value >= 5000) score += 10;
+                    if (inv.ValorInvestido.Value >= 1000) score += 20;
+                    else if (inv.ValorInvestido.Value >= 500) score += 10;
                 }
 
                 // Peso pelo prazo
@@ -58,14 +58,13 @@ namespace Painel.Investimento.Application.UseCases
                 }
 
                 // Peso pelo risco do produto
-                if (inv.Risco.HasValue)
-                {
-                    if (inv.Risco.Value >= 70) score += 20; // produtos mais arrojados
-                    else if (inv.Risco.Value >= 40) score += 10;
-                }
+               
             }
 
             return score;
         }
+
+
+
     }
 }

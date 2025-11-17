@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Painel.Investimento.Aplication.UseCaseInvestimentos;
 using Painel.Investimento.Application.DTOs;
-using Painel.Investimento.Application.UserCases;
 using Painel.Investimento.Domain.Models;
 
 namespace Painel.Investimento.API.Controllers
@@ -28,8 +28,7 @@ namespace Painel.Investimento.API.Controllers
                 dto.ProdutoInvestimentoId,
                 dto.ValorInvestido,
                 dto.DataInvestimento,
-                dto.PrazoMeses,
-                dto.Risco
+                dto.PrazoMeses
             );
 
             if (investimento == null)
@@ -37,6 +36,27 @@ namespace Painel.Investimento.API.Controllers
 
             var investimentoDto = _mapper.Map<InvestimentoDto>(investimento);
             return CreatedAtAction(nameof(GetById), new { id = investimentoDto.Id }, investimentoDto);
+        }
+
+        // ✅ Registrar retirada
+        [HttpPost("retir-investimento")]
+        public async Task<ActionResult<InvestimentoDto>> RetiraInvestimento([FromBody] RetiradaInvestimentoDto dto)
+        {
+            var investimento = await _useCase.RetirarInvestimentoAsync(
+                dto.ClienteId,
+                dto.ProdutoInvestimentoId,
+                dto.ValorInvestido,
+                 dto.DataInvestimento,
+                 dto.PrazoMeses,
+                dto.ValorRetirado ?? 0,                             
+                dto.Crise                
+            );
+            
+            if (investimento == null)
+                return BadRequest("Não há investimentos para retirada.");
+
+            var investimentoDto = _mapper.Map<RetiradaInvestimentoDto>(investimento);
+            return CreatedAtAction(nameof(GetById), new { id = investimentoDto.ClienteId }, investimentoDto);
         }
 
         // ✅ Obter investimento por Id
@@ -62,7 +82,7 @@ namespace Painel.Investimento.API.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<InvestimentoDto>> Put(int id, [FromBody] InvestimentoDto dto)
         {
-            var investimento = await _useCase.AtualizarAsync(id, dto.ValorInvestido, dto.PrazoMeses, dto.Risco);
+            var investimento = await _useCase.AtualizarAsync(id, dto.ValorInvestido, dto.PrazoMeses);
             if (investimento == null)
                 return NotFound();
 

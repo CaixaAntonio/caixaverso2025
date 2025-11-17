@@ -36,8 +36,12 @@ namespace Painel.Investimento.Infra.Configurations
             builder.Property(i => i.PrazoMeses)
                    .IsRequired(false);
 
-            builder.Property(i => i.Risco)
-                   .IsRequired(false);
+            builder.Property(i => i.Crise)
+                   .IsRequired();
+
+            builder.Property(i => i.ValorRetirado)
+                   .HasColumnType("decimal(18,2)");
+
         }
     }
 }

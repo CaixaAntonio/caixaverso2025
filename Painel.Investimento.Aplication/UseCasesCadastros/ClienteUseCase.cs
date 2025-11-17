@@ -2,7 +2,7 @@
 using Painel.Investimento.Domain.Repository.Abstract;
 using Painel.Investimento.Domain.Valueobjects;
 
-namespace Painel.Investimento.Aplication.UserCases
+namespace Painel.Investimento.Aplication.UseCasesCadastros
 {
     public class ClienteUseCase
     {

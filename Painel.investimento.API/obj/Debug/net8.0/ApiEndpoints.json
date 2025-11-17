@@ -314,6 +314,32 @@
     ]
   },
   {
+    "ContainingType": "Painel.Investimento.API.Controllers.InvestimentosController",
+    "Method": "RetiraInvestimento",
+    "RelativePath": "api/Investimentos/retir-investimento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Painel.Investimento.Application.DTOs.RetiradaInvestimentoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Painel.Investimento.Application.DTOs.InvestimentoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Painel.Investimento.API.Controllers.PerfilProdutoController",
     "Method": "Post",
     "RelativePath": "api/perfilproduto",

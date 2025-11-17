@@ -10,7 +10,8 @@
         public decimal? ValorInvestido { get; set; }
         public DateTime? DataInvestimento { get; set; }
         public int? PrazoMeses { get; set; }
-        public int? Risco { get; set; }
+        public bool Crise { get; set; }
+        public decimal? ValorRetirado { get; set; }
     }
 
     public class CreateInvestimentoDto
@@ -20,6 +21,18 @@
         public decimal ValorInvestido { get; set; }
         public DateTime DataInvestimento { get; set; }
         public int? PrazoMeses { get; set; }
-        public int? Risco { get; set; }
+        public bool Crise { get; set; }
+        public decimal? ValorRetirado { get; set; }
+    }
+
+    public class RetiradaInvestimentoDto
+    {
+        public int ClienteId { get; set; }
+        public int ProdutoInvestimentoId { get; set; }
+        public decimal ValorInvestido { get; set; }
+        public DateTime DataInvestimento { get; set; }
+        public int? PrazoMeses { get; set; }
+        public bool Crise { get; set; }
+        public decimal? ValorRetirado { get; set; }
     }
 }

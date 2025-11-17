@@ -1,26 +1,28 @@
 ﻿using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repository.Abstract;
 
-namespace Painel.Investimento.Application.UserCases
+namespace Painel.Investimento.Aplication.UseCaseInvestimentos
 {
     public class InvestimentosUseCase
     {
         private readonly IInvestimentosRepository _repository;
         private readonly IClienteRepository _clienteRepository;
         private readonly IProdutoInvestimentoRepository _produtoRepository;
+        private readonly IInvestimentosRepository _investimento;
         private readonly IUnitOfWork _unitOfWork;
 
-        public InvestimentosUseCase(
-            IInvestimentosRepository repository,
-            IClienteRepository clienteRepository,
-            IProdutoInvestimentoRepository produtoRepository,
-            IUnitOfWork unitOfWork)
+        public InvestimentosUseCase(IInvestimentosRepository repository, IClienteRepository clienteRepository,
+            IProdutoInvestimentoRepository produtoRepository, IInvestimentosRepository inestimento, IUnitOfWork unitOfWork)
         {
             _repository = repository;
             _clienteRepository = clienteRepository;
             _produtoRepository = produtoRepository;
+            _investimento = inestimento;
             _unitOfWork = unitOfWork;
         }
+
+
+
 
         // ✅ Registrar novo investimento
         public async Task<Investimentos?> RegistrarAsync(
@@ -28,8 +30,8 @@ namespace Painel.Investimento.Application.UserCases
             int produtoInvestimentoId,
             decimal valorInvestido,
             DateTime dataInvestimento,
-            int? prazoMeses,
-            int? risco)
+            int? prazoMeses
+            )
         {
             // Valida cliente
             var cliente = await _clienteRepository.ObterPorIdAsync(clienteId);
@@ -42,8 +44,45 @@ namespace Painel.Investimento.Application.UserCases
                 throw new ArgumentException("Produto de investimento não encontrado.", nameof(produtoInvestimentoId));
 
             // Cria entidade
-            var investimento = new Investimentos(clienteId, produtoInvestimentoId, valorInvestido, dataInvestimento, prazoMeses, risco);
+            var investimento = new Investimentos(clienteId, produtoInvestimentoId, valorInvestido, dataInvestimento, prazoMeses);
 
+            await _repository.AdicionarAsync(investimento);
+            await _unitOfWork.CommitAsync();
+
+            return investimento;
+        }
+
+        // ✅ Retirar investimento
+        public async Task<Investimentos?> RetirarInvestimentoAsync(
+            int clienteId,
+            int produtoInvestimentoId,
+            decimal valorInvestido,
+            DateTime dataInvestimento,
+            int? prazoMeses,
+             decimal valorRetirado,
+            bool crise
+            )
+        {
+            // Valida cliente
+            var cliente = await _clienteRepository.ObterPorIdAsync(clienteId);
+            if (cliente == null)
+                throw new ArgumentException("Cliente não encontrado.", nameof(clienteId));
+
+            // Valida produto
+            var produto = await _produtoRepository.ObterPorIdAsync(produtoInvestimentoId);
+            if (produto == null)
+                throw new ArgumentException("Produto de investimento não encontrado.", nameof(produtoInvestimentoId));
+
+            // Valida Invesmento
+            var investold = await _investimento.ObterInvestimentOldPorIdAsync(clienteId,produtoInvestimentoId);
+            if (produto == null)
+                throw new ArgumentException("Investimento não encontrado.", nameof(produtoInvestimentoId));
+
+
+            // Cria entidade
+            var investimento = new Investimentos(clienteId, produtoInvestimentoId, 0, 0, dataInvestimento,
+                              crise ,valorRetirado );
+            
             await _repository.AdicionarAsync(investimento);
             await _unitOfWork.CommitAsync();
 
@@ -58,7 +97,7 @@ namespace Painel.Investimento.Application.UserCases
             await _repository.ObterPorClienteAsync(clienteId);
 
         // ✅ Atualizar investimento (exemplo: valor ou prazo)
-        public async Task<Investimentos?> AtualizarAsync(int id, decimal? novoValor, int? novoPrazoMeses, int? novoRisco)
+        public async Task<Investimentos?> AtualizarAsync(int id, decimal? novoValor, int? novoPrazoMeses)
         {
             var investimento = await _repository.ObterPorIdAsync(id);
             if (investimento == null) return null;
@@ -69,8 +108,8 @@ namespace Painel.Investimento.Application.UserCases
             if (novoPrazoMeses.HasValue)
                 investimento.GetType().GetProperty("PrazoMeses")?.SetValue(investimento, novoPrazoMeses);
 
-            if (novoRisco.HasValue)
-                investimento.GetType().GetProperty("Risco")?.SetValue(investimento, novoRisco);
+
+
 
             await _unitOfWork.CommitAsync();
             return investimento;

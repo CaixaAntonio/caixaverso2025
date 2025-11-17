@@ -6,6 +6,7 @@ namespace Painel.Investimento.Domain.Repository.Abstract
     {
         Task<Investimentos?> ObterPorIdAsync(int id);
         Task<IEnumerable<Investimentos>> ObterPorClienteAsync(int clienteId);
+        Task<IEnumerable<Investimentos>> ObterInvestimentOldPorIdAsync(int clienteId, int produtoInvestID);
         Task<IEnumerable<Investimentos>> ObterTodosAsync();
         Task AdicionarAsync(Investimentos investimento);
         Task AtualizarAsync(Investimentos investimento);

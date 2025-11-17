@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Painel.Investimento.Aplication.UserCases;
+using Painel.Investimento.Aplication.UseCasesProdutos;
 using Painel.Investimento.Domain.Dtos;
 using Painel.Investimento.Domain.Models;
 
