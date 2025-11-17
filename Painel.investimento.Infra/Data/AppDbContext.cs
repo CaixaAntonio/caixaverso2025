@@ -2,6 +2,7 @@
 using Painel.investimento.Infra.Mappings.Configurations;
 using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Infra.Configurations;
+using Painel.Investimento.Infra.Data.Configurations;
 
 namespace Painel.investimento.Infra.Data
 {
@@ -19,6 +20,8 @@ namespace Painel.investimento.Infra.Data
         public DbSet<ProdutoInvestimento> ProdutosInvestimento { get; set; }
         public DbSet<PerfilProduto> PerfilProdutos { get; set; }
 
+        public DbSet<Usuario> Usuarios { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,6 +31,7 @@ namespace Painel.investimento.Infra.Data
             modelBuilder.ApplyConfiguration(new InvestimentosConfiguration());
             modelBuilder.ApplyConfiguration(new ProdutoInvestimentoConfiguration());
             modelBuilder.ApplyConfiguration(new PerfilProdutoConfiguration());
+            modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
         }
 
     }

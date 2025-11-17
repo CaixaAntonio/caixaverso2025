@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Painel.investimento.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c43ba2c213edd30a8f4e1b2b000b2f8b6a124e1a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4341df0032cdfc7de523ec4bcd606e02b7185c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Painel.investimento.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Painel.investimento.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

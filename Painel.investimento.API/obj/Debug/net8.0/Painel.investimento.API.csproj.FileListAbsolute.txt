@@ -158,3 +158,4 @@ C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investim
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\obj\Debug\net8.0\Painel.I.05C40434.Up2Date
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.investimento.API\bin\Debug\net8.0\BCrypt.Net-Next.dll

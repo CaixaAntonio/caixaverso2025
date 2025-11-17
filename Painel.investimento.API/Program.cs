@@ -13,6 +13,8 @@ using Painel.Investimento.Aplication.UserCases;
 using Painel.Investimento.Application.Mappings;
 using Painel.Investimento.Application.UserCases;
 using Painel.Investimento.Domain.Repository.Abstract;
+using Painel.Investimento.Domain.Services;
+using Painel.Investimento.Infra.Auth;
 using Painel.Investimento.Infra.Repositorie;
 using Painel.Investimento.Infra.Repositories;
 using Painel.Investimento.Infra.Repository;
@@ -42,10 +44,16 @@ builder.Services.AddScoped<IPerfilProdutoRepository, PerfilProdutoRepository>();
 builder.Services.AddScoped<IProdutoInvestimentoRepository, ProdutoInvestimentoRepository>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 
+builder.Services.AddScoped<IAuthService, JwtAuthService>();
+builder.Services.AddScoped<LoginUseCase>();
+
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddAutoMapper(typeof(ProdutoInvestimentoProfile));
 builder.Services.AddAutoMapper(typeof(PerfilProdutoProfile));
 builder.Services.AddAutoMapper(typeof(InvestimentoProfile));
+builder.Services.AddAutoMapper(typeof(UsuarioProfile));
+
 
 
 
@@ -127,6 +135,13 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+// Seed inicial
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    await UsuarioSeeder.SeedAdminAsync(db);
 }
 
 app.UseHttpsRedirection();
