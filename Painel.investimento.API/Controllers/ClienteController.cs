@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Painel.Investimento.Aplication.UserCases;
+using Painel.Investimento.Application.UseCases;
 using Painel.Investimento.Domain.Dtos;
 using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Valueobjects;
@@ -13,12 +14,29 @@ namespace Painel.Investimento.API.Controllers
     public class ClienteController : ControllerBase
     {
         private readonly ClienteUseCase _useCase;
+        private readonly CalcularPerfilDeRiscoUseCase _calcularPerfilDeRisco;
         private readonly IMapper _mapper;
 
-        public ClienteController(ClienteUseCase useCase, IMapper mapper)
+        public ClienteController(ClienteUseCase useCase, CalcularPerfilDeRiscoUseCase calcularPerfilDeRisco,
+            IMapper mapper)
         {
             _useCase = useCase;
+            _calcularPerfilDeRisco = calcularPerfilDeRisco;
             _mapper = mapper;
+        }
+
+        /// <summary>
+        /// Calcula e retorna o perfil de risco do cliente com base nos seus investimentos.
+        /// </summary>
+        [HttpGet("{id:int}/perfil-risco")]
+        public async Task<ActionResult<PerfilDeRiscoDto>> GetPerfilRisco(int id)
+        {
+            var perfil = await _calcularPerfilDeRisco.ExecuteAsync(id);
+            if (perfil == null)
+                return NotFound();
+
+            var dto = _mapper.Map<PerfilDeRiscoDto>(perfil);
+            return Ok(dto);
         }
 
         // POST: api/cliente

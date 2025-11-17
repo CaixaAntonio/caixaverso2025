@@ -11,6 +11,7 @@ using Painel.Investimento.API.Mappings;
 using Painel.Investimento.API.ViewModels.Validators;
 using Painel.Investimento.Aplication.UserCases;
 using Painel.Investimento.Application.Mappings;
+using Painel.Investimento.Application.UseCases;
 using Painel.Investimento.Application.UserCases;
 using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repositories;
@@ -38,6 +39,7 @@ builder.Services.AddScoped<ProdutoInvestimentoUseCase>();
 builder.Services.AddScoped<ClienteUseCase>();
 builder.Services.AddScoped<PerfilProdutoUseCase>();
 builder.Services.AddScoped<InvestimentosUseCase>();
+builder.Services.AddScoped<CalcularPerfilDeRiscoUseCase>();
 
 //Repository
 
@@ -46,6 +48,7 @@ builder.Services.AddScoped<IPerfilProdutoRepository, PerfilProdutoRepository>();
 builder.Services.AddScoped<IProdutoInvestimentoRepository, ProdutoInvestimentoRepository>();
 builder.Services.AddScoped<IInvestimentosRepository, InvestimentosRepository>();
 builder.Services.AddScoped<IPerfilDeRiscoRepository, PerfilDeRiscoRepository>();
+builder.Services.AddScoped<IRiskProfileService, RiskProfileService>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 
 builder.Services.AddScoped<IAuthService, JwtAuthService>();

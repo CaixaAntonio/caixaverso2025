@@ -163,6 +163,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Painel.Investimento.API.Controllers.ClienteController",
+    "Method": "GetPerfilRisco",
+    "RelativePath": "api/cliente/{id}/perfil-risco",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PerfilDeRiscoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Painel.Investimento.API.Controllers.InvestimentosController",
     "Method": "Post",
     "RelativePath": "api/Investimentos",
