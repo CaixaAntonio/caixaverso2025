@@ -11,7 +11,7 @@ namespace Painel.Investimento.API.ViewModels.Validators
                 .NotEmpty().WithMessage("O nome do produto é obrigatório.")
                 .MaximumLength(100).WithMessage("O nome não pode ultrapassar 100 caracteres.");
 
-            RuleFor(p => p.TipoPerfil)
+            RuleFor(p => p.Tipo)
                 .NotEmpty().WithMessage("O tipo de perfil do produto é obrigatório.")
                 .MaximumLength(50).WithMessage("O tipo de perfil não pode ultrapassar 50 caracteres.");
 

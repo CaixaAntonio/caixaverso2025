@@ -23,7 +23,7 @@ namespace Painel.Investimentos.Testes
 
             // Assert
             Assert.Equal("CDB", produto.Nome);
-            Assert.Equal("Renda Fixa", produto.TipoPerfil);
+            Assert.Equal("Renda Fixa", produto.Tipo);
             Assert.Equal(0.12m, produto.RentabilidadeAnual);
             Assert.Equal(10, produto.Risco);
             Assert.Equal("Diária", produto.Liquidez);
@@ -64,7 +64,7 @@ namespace Painel.Investimentos.Testes
 
             // Assert
             Assert.Equal("LCI", produto.Nome);
-            Assert.Equal("Renda Fixa", produto.TipoPerfil);
+            Assert.Equal("Renda Fixa", produto.Tipo);
             Assert.Equal(0.15m, produto.RentabilidadeAnual);
             Assert.Equal(20, produto.Risco);
             Assert.Equal("Mensal", produto.Liquidez);

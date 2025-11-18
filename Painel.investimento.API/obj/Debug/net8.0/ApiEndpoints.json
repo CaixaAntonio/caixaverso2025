@@ -176,17 +176,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "PerfilDeRiscoDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Painel.Investimento.API.Controllers.InvestimentosController",
@@ -531,6 +521,58 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.SimulacoesController",
+    "Method": "GetHistorico",
+    "RelativePath": "api/Simulacoes/{clienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Painel.Investimento.Domain.Dtos.SimulacaoHistoricoResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.SimulacoesController",
+    "Method": "Simular",
+    "RelativePath": "api/Simulacoes/investimento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Painel.Investimento.Domain.Dtos.SimulacaoInvestimentoRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Painel.Investimento.Domain.Dtos.SimulacaoInvestimentoResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "Painel.Investimento.API.Controllers.UsuarioController",

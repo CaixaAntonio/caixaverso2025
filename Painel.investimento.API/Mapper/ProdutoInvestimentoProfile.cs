@@ -12,7 +12,7 @@ namespace Painel.Investimento.API.Mapper
             CreateMap<ProdutoInvestimentoRequestDto, ProdutoInvestimento>()
                 .ConstructUsing(dto => new ProdutoInvestimento(
                     dto.Nome!,
-                    dto.TipoPerfil!,
+                    dto.Tipo!,
                     dto.RentabilidadeAnual,
                     dto.Risco,
                     dto.Liquidez!,
@@ -23,7 +23,7 @@ namespace Painel.Investimento.API.Mapper
 
             // Domain → Response
             CreateMap<ProdutoInvestimento, ProdutoInvestimentoResponseDto>()
-                .ForMember(dest => dest.TipoPerfil, opt => opt.MapFrom(src => src.TipoPerfil))
+                .ForMember(dest => dest.Tipo, opt => opt.MapFrom(src => src.Tipo))
                 .ForMember(dest => dest.Liquidez, opt => opt.MapFrom(src => src.Liquidez))
                 .ForMember(dest => dest.Tributacao, opt => opt.MapFrom(src => src.Tributacao))
                 .ForMember(dest => dest.Garantia, opt => opt.MapFrom(src => src.Garantia))

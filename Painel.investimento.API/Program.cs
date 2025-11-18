@@ -13,6 +13,7 @@ using Painel.Investimento.Aplication.UseCaseInvestimentos;
 using Painel.Investimento.Aplication.UseCasesCadastros;
 using Painel.Investimento.Aplication.UseCasesProdutos;
 using Painel.Investimento.Application.Mappings;
+using Painel.Investimento.Application.UseCaseInvestimentos;
 using Painel.Investimento.Application.UserCases;
 using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repositories;
@@ -41,16 +42,18 @@ builder.Services.AddScoped<ClienteUseCase>();
 builder.Services.AddScoped<PerfilProdutoUseCase>();
 builder.Services.AddScoped<InvestimentosUseCase>();
 builder.Services.AddScoped<CalcularPerfilDeRiscoUseCase>();
+builder.Services.AddScoped<SimularInvestimentoUseCase>();
+builder.Services.AddScoped<ConsultarHistoricoSimulacoesUseCase>();
 
 //Repository
 
 builder.Services.AddScoped<IInvestimentosRepository, InvestimentosRepository>();
 builder.Services.AddScoped<IPerfilProdutoRepository, PerfilProdutoRepository>();
 builder.Services.AddScoped<IProdutoInvestimentoRepository, ProdutoInvestimentoRepository>();
-builder.Services.AddScoped<IInvestimentosRepository, InvestimentosRepository>();
 builder.Services.AddScoped<IPerfilDeRiscoRepository, PerfilDeRiscoRepository>();
 builder.Services.AddScoped<IRiskProfileService, RiskProfileService>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<ISimulacaoRepository, SimulacaoRepository>();
 
 builder.Services.AddScoped<IAuthService, JwtAuthService>();
 builder.Services.AddScoped<LoginUseCase>();

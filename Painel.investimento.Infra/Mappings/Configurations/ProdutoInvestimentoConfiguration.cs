@@ -18,7 +18,7 @@ namespace Painel.Investimento.Infra.Configurations
                    .HasMaxLength(150)
                    .IsRequired();
 
-            builder.Property(p => p.TipoPerfil)
+            builder.Property(p => p.Tipo)
                    .HasMaxLength(50)
                    .IsRequired();
 

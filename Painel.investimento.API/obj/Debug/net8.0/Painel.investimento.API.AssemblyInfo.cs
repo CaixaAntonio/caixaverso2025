@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Painel.Investimento.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+883c8cc3e7537a789372eb65abeb1d4224757991")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ee97d8c1c9966adf4a6c219b43ab088d01015a2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Painel.Investimento.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Painel.Investimento.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

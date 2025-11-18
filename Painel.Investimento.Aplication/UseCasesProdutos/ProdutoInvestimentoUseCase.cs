@@ -17,7 +17,7 @@ namespace Painel.Investimento.Aplication.UseCasesProdutos
         // ✅ Criar novo produto
         public async Task<ProdutoInvestimento> ExecuteAsync(
             string nome,
-            string tipoPerfil,
+            string tipo,
             decimal rentabilidadeAnual,
             int risco,
             string liquidez,
@@ -27,7 +27,7 @@ namespace Painel.Investimento.Aplication.UseCasesProdutos
         {
             var produto = new ProdutoInvestimento(
                 nome,
-                tipoPerfil,
+                tipo,
                 rentabilidadeAnual,
                 risco,
                 liquidez,
@@ -58,7 +58,7 @@ namespace Painel.Investimento.Aplication.UseCasesProdutos
         public async Task<ProdutoInvestimento?> AtualizarAsync(
             int id,
             string nome,
-            string tipoPerfil,
+            string tipo,
             decimal? rentabilidadeAnual,
             int? risco,
             string liquidez,
@@ -71,7 +71,7 @@ namespace Painel.Investimento.Aplication.UseCasesProdutos
 
             produto.AtualizarProdutoInvestimento(
                 nome,
-                tipoPerfil,
+                tipo,
                 rentabilidadeAnual ?? produto.RentabilidadeAnual,
                 risco ?? produto.Risco,
                 liquidez,

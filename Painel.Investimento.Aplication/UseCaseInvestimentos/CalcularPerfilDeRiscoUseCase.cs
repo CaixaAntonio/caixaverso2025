@@ -37,31 +37,46 @@ namespace Painel.Investimento.Aplication.UseCaseInvestimentos
             return perfil;
         }
 
-        private int CalcularPontuacao(IEnumerable<Investimentos> investimentos)
+        public int CalcularPontuacao(IEnumerable<Investimentos> investimentos)
         {
-            int score = 0;
+            int pontuacao = 0;
 
             foreach (var inv in investimentos)
             {
-                // Peso pelo valor investido
-                if (inv.ValorInvestido.HasValue)
-                {
-                    if (inv.ValorInvestido.Value >= 1000) score += 20;
-                    else if (inv.ValorInvestido.Value >= 500) score += 10;
-                }
+                // Valor investido
+                if (inv.ValorInvestido >= 500) pontuacao += 20;
+                else if (inv.ValorInvestido >= 100) pontuacao += 10;
+                else if (inv.ValorInvestido > 0) pontuacao += 5;
 
-                // Peso pelo prazo
+                // Prazo
                 if (inv.PrazoMeses.HasValue)
                 {
-                    if (inv.PrazoMeses.Value >= 24) score += 15;
-                    else if (inv.PrazoMeses.Value >= 12) score += 10;
+                    if (inv.PrazoMeses >= 24) pontuacao += 15;
+                    else if (inv.PrazoMeses >= 12) pontuacao += 10;
+                    else pontuacao += 5;
                 }
 
-                // Peso pelo risco do produto
-               
+                // Crise e retiradas
+                if (inv.Crise)
+                {
+                    if (inv.ValorRetirado.HasValue && inv.ValorRetirado > 0)
+                        pontuacao -= 15;
+                    else
+                        pontuacao -= 5;
+                }
             }
 
-            return score;
+            // Limitar entre 0 e 100
+            if (pontuacao < 0) pontuacao = 0;
+            if (pontuacao > 100) pontuacao = 100;
+
+            return pontuacao;
+        }
+        public string ClassificarPerfil(int pontuacao)
+        {
+            if (pontuacao <= 35) return "Conservador";
+            if (pontuacao <= 65) return "Moderado";
+            return "Agressivo";
         }
 
 

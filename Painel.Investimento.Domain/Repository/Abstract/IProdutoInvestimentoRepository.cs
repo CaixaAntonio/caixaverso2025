@@ -13,6 +13,7 @@ namespace Painel.Investimento.Domain.Repository.Abstract
         Task<ProdutoInvestimento?> GetByIdAsync(int id);
         Task<ProdutoInvestimento?> ObterPorIdAsync(int id);
         Task<IEnumerable<ProdutoInvestimento>> GetAllAsync();
+        Task<ProdutoInvestimento?> GetByTipoAsync(string tipoProduto);
         void Remove(ProdutoInvestimento produto);
     }
 

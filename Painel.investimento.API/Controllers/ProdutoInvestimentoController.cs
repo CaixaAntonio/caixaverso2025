@@ -27,7 +27,7 @@ namespace Painel.Investimento.API.Controllers
 
             var result = await _useCase.ExecuteAsync(
                 produto.Nome,
-                produto.TipoPerfil,
+                produto.Tipo,
                 produto.RentabilidadeAnual,
                 produto.Risco,
                 produto.Liquidez,
@@ -67,7 +67,7 @@ namespace Painel.Investimento.API.Controllers
             var produtoAtualizado = await _useCase.AtualizarAsync(
                  id,
                  dto.Nome!,
-                 dto.TipoPerfil!,
+                 dto.Tipo!,
                  dto.RentabilidadeAnual,
                  dto.Risco,
                  dto.Liquidez!,

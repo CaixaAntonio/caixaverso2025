@@ -42,6 +42,13 @@ namespace Painel.investimento.Infra.Repositorie
                                 .FirstOrDefaultAsync(p => p.Id == id);
         }
 
+       
+        public async Task<ProdutoInvestimento?> GetByTipoAsync(string nomeProduto)
+        {
+            return await _context.ProdutosInvestimento
+                                 .FirstOrDefaultAsync(p => p.Nome == nomeProduto);
+        }
+
         public void Remove(ProdutoInvestimento produto)
         {
             _context.ProdutosInvestimento.Remove(produto);

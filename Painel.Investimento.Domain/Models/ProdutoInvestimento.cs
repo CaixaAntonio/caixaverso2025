@@ -7,7 +7,7 @@ namespace Painel.Investimento.Domain.Models
     {
         public int? Id { get; private set; }
         public string Nome { get; private set; }
-        public string TipoPerfil { get; private set; }
+        public string Tipo { get; private set; }
         public decimal RentabilidadeAnual { get; private set; }
         public int Risco { get; private set; } // ✅ mantido como int (escala 1–100)
         public string Liquidez { get; private set; }
@@ -26,16 +26,16 @@ namespace Painel.Investimento.Domain.Models
             AtualizarProdutoInvestimento(nome, tipoPerfil, rentabilidadeAnual, risco, liquidez, tributacao, garantia, descricao);
         }
 
-        public void AtualizarProdutoInvestimento(string nome, string tipoPerfil, decimal rentabilidadeAnual, int risco,
+        public void AtualizarProdutoInvestimento(string nome, string tipo, decimal rentabilidadeAnual, int risco,
                                                  string liquidez, string tributacao, string garantia, string descricao)
         {
             if (string.IsNullOrWhiteSpace(nome))
                 throw new ArgumentException("Nome não pode ser vazio.");
             Nome = nome;
 
-            if (string.IsNullOrWhiteSpace(tipoPerfil))
+            if (string.IsNullOrWhiteSpace(tipo))
                 throw new ArgumentException("Tipo de perfil não pode ser vazio.");
-            TipoPerfil = tipoPerfil;
+            Tipo = tipo;
 
             if (rentabilidadeAnual <= 0)
                 throw new ArgumentException("Rentabilidade deve ser maior que zero.");

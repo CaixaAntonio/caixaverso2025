@@ -5,7 +5,9 @@ using Painel.Investimento.Aplication.UseCaseInvestimentos;
 using Painel.Investimento.Aplication.UseCasesCadastros;
 using Painel.Investimento.Domain.Dtos;
 using Painel.Investimento.Domain.Models;
+using Painel.Investimento.Domain.Repository.Abstract;
 using Painel.Investimento.Domain.Valueobjects;
+using Painel.Investimento.Infra.Repositories;
 
 namespace Painel.Investimento.API.Controllers
 {
@@ -14,29 +16,40 @@ namespace Painel.Investimento.API.Controllers
     public class ClienteController : ControllerBase
     {
         private readonly ClienteUseCase _useCase;
+        private readonly IInvestimentosRepository _investimentoRepo;
         private readonly CalcularPerfilDeRiscoUseCase _calcularPerfilDeRisco;
         private readonly IMapper _mapper;
 
-        public ClienteController(ClienteUseCase useCase, CalcularPerfilDeRiscoUseCase calcularPerfilDeRisco,
-            IMapper mapper)
+        public ClienteController(ClienteUseCase useCase, IInvestimentosRepository investimentoRepo,
+            CalcularPerfilDeRiscoUseCase calcularPerfilDeRisco, IMapper mapper)
         {
             _useCase = useCase;
+            _investimentoRepo = investimentoRepo;
             _calcularPerfilDeRisco = calcularPerfilDeRisco;
             _mapper = mapper;
         }
+
+
 
         /// <summary>
         /// Calcula e retorna o perfil de risco do cliente com base nos seus investimentos.
         /// </summary>
         [HttpGet("{id:int}/perfil-risco")]
-        public async Task<ActionResult<PerfilDeRiscoDto>> GetPerfilRisco(int id)
+        public async Task<ActionResult<object>> GetPerfilRisco(int id)
         {
-            var perfil = await _calcularPerfilDeRisco.ExecuteAsync(id);
-            if (perfil == null)
-                return NotFound();
+            var investimentos = await _investimentoRepo.ObterPorClienteAsync(id);
+            if (investimentos == null || !investimentos.Any())
+                return NotFound("Nenhum investimento encontrado para este cliente.");
 
-            var dto = _mapper.Map<PerfilDeRiscoDto>(perfil);
-            return Ok(dto);
+            var score = _calcularPerfilDeRisco.CalcularPontuacao(investimentos);
+            var perfil = _calcularPerfilDeRisco.ClassificarPerfil(score);
+
+            return Ok(new
+            {
+                ClienteId = id,
+                Pontuacao = score,
+                Perfil = perfil
+            });
         }
 
         // POST: api/cliente
