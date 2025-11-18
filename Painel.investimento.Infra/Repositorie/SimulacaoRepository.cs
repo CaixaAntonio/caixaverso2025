@@ -47,5 +47,11 @@ namespace Painel.Investimento.Infra.Repositories
                 DataSimulacao = s.DataSimulacao
             });
         }
+
+        public async Task<Simulacao?> GetByIdAsync(int id)
+        {
+            return await _context.Simulacoes
+                                 .FirstOrDefaultAsync(s => s.Id == id);
+        }
     }
 }

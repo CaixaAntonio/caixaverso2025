@@ -115,5 +115,30 @@ namespace Painel.Investimento.Application.UseCaseInvestimentos
 
             return response;
         }
-    }
+
+        // 🔹 Novo método: calcula rentabilidade e verifica se é rentável
+        public async Task<RentabilidadeResponse> CalcularRentabilidadeAsync(int simulacaoId, decimal minimoPercentual)
+        {
+            var simulacao = await _simulacaoRepo.GetByIdAsync(simulacaoId);
+
+            if (simulacao == null)
+                throw new InvalidOperationException("Simulação não encontrada.");
+
+            var percentual = simulacao.CalcularRentabilidadePercentual();
+            var ehRentavel = simulacao.EhRentavel(minimoPercentual);
+
+            return new RentabilidadeResponse
+            {
+                SimulacaoId = simulacao.Id,
+                PercentualRentabilidade = percentual,
+                EhRentavel = ehRentavel,
+                ValorInicial = simulacao.ValorInicial,
+                ValorFinal = simulacao.ValorFinal,
+                RentabilidadeEfetiva = simulacao.RentabilidadeEfetiva,
+                PrazoMeses = simulacao.PrazoMeses,
+                DataSimulacao = simulacao.DataSimulacao
+            };
+        }
+    }    
 }
+

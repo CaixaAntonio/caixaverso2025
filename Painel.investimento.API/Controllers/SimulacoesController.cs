@@ -47,5 +47,25 @@ namespace Painel.Investimento.API.Controllers
 
             return Ok(response);
         }
+
+        /// <summary>
+        /// Endpoint que calcula a rentabilidade percentual e verifica se é rentável
+        /// </summary>
+        /// <param name="id">Id da simulação</param>
+        /// <param name="minimoPercentual">Percentual mínimo esperado</param>
+        /// <returns></returns>
+        [HttpGet("{id}/rentabilidade")]
+        public async Task<IActionResult> GetRentabilidade(int id, [FromQuery] decimal minimoPercentual)
+        {
+            try
+            {
+                var result = await _simularInvestimento.CalcularRentabilidadeAsync(id, minimoPercentual);
+                return Ok(result);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }

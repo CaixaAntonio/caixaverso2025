@@ -550,6 +550,27 @@
   },
   {
     "ContainingType": "Painel.Investimento.API.Controllers.SimulacoesController",
+    "Method": "GetRentabilidade",
+    "RelativePath": "api/Simulacoes/{id}/rentabilidade",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "minimoPercentual",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Painel.Investimento.API.Controllers.SimulacoesController",
     "Method": "Simular",
     "RelativePath": "api/Simulacoes/investimento",
     "HttpMethod": "POST",

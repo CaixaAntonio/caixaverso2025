@@ -43,4 +43,17 @@ namespace Painel.Investimento.Domain.Dtos
         public IEnumerable<SimulacaoInvestimentoResponse> Simulacoes { get; set; }
     }
 
+    // DTO de resposta para o endpoint
+    public class RentabilidadeResponse
+    {
+        public int SimulacaoId { get; set; }
+        public decimal PercentualRentabilidade { get; set; }
+        public bool EhRentavel { get; set; }
+        public decimal ValorInicial { get; set; }
+        public decimal ValorFinal { get; set; }
+        public decimal RentabilidadeEfetiva { get; set; }
+        public int PrazoMeses { get; set; }
+        public DateTime DataSimulacao { get; set; }
+    }
+
 }

@@ -12,6 +12,7 @@ namespace Painel.Investimento.Domain.Repository.Abstract
     {
         Task AddAsync(Simulacao simulacao);
         Task<IEnumerable<SimulacaoInvestimentoResponse>> GetByClienteIdAsync(int clienteId);
+        Task<Simulacao?> GetByIdAsync(int id);
     }
 
 }

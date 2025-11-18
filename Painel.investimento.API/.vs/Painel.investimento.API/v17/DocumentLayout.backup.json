@@ -6,23 +6,20 @@
       "AbsoluteMoniker": "D:0:0:{C6AE96A7-6E35-491F-BDBE-5A61A57471DD}|..\\Painel.Investimento.Aplication\\Painel.Investimento.Aplication.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.aplication\\usecaseinvestimentos\\simularinvestimentousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE24109B-5994-41B5-9345-C456438FFBD0}|..\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.domain\\dtos\\enderecoresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.Investimento.API.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.api\\controllers\\simulacoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.Investimento.API.csproj|solutionrelative:controllers\\simulacoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{186D8410-68E2-4DA6-ADBF-020FCC3F4570}|..\\Painel.investimento.Infra\\Painel.investimento.Infra.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.infra\\repositorie\\simulacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AE24109B-5994-41B5-9345-C456438FFBD0}|..\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.domain\\dtos\\simulacaoinvestimentorequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE24109B-5994-41B5-9345-C456438FFBD0}|..\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.domain\\repository\\abstract\\isimulacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE24109B-5994-41B5-9345-C456438FFBD0}|..\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.domain\\repository\\abstract\\iprodutoinvestimentorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AE24109B-5994-41B5-9345-C456438FFBD0}|..\\Painel.Investimento.Domain\\Painel.Investimento.Domain.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.domain\\models\\simulacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.Investimento.API.csproj|c:\\users\\gabri\\onedrive\\documentos\\caixaverso2025\\caixaverso2025\\painel.investimento.api\\controllers\\simulacoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{332CFA5A-2349-49CE-9730-B055E3648252}|Painel.Investimento.API.csproj|solutionrelative:controllers\\simulacoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,19 +29,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EnderecoResponse.cs",
-              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Dtos\\EnderecoResponse.cs",
-              "RelativeDocumentMoniker": "..\\Painel.Investimento.Domain\\Dtos\\EnderecoResponse.cs",
-              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Dtos\\EnderecoResponse.cs",
-              "RelativeToolTip": "..\\Painel.Investimento.Domain\\Dtos\\EnderecoResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "SimulacaoInvestimentoRequest.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Dtos\\SimulacaoInvestimentoRequest.cs",
+              "RelativeDocumentMoniker": "..\\Painel.Investimento.Domain\\Dtos\\SimulacaoInvestimentoRequest.cs",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Dtos\\SimulacaoInvestimentoRequest.cs",
+              "RelativeToolTip": "..\\Painel.Investimento.Domain\\Dtos\\SimulacaoInvestimentoRequest.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAA/wDgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T11:32:46.212Z",
+              "WhenOpened": "2025-11-18T12:26:54.812Z",
               "EditorCaption": ""
             },
             {
@@ -55,35 +52,22 @@
               "RelativeDocumentMoniker": "..\\Painel.investimento.Infra\\Repositorie\\SimulacaoRepository.cs",
               "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.Infra\\Repositorie\\SimulacaoRepository.cs",
               "RelativeToolTip": "..\\Painel.investimento.Infra\\Repositorie\\SimulacaoRepository.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwCAAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwDYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T11:30:56.396Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ISimulacaoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Repository\\Abstract\\ISimulacaoRepository.cs",
-              "RelativeDocumentMoniker": "..\\Painel.Investimento.Domain\\Repository\\Abstract\\ISimulacaoRepository.cs",
-              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Repository\\Abstract\\ISimulacaoRepository.cs",
-              "RelativeToolTip": "..\\Painel.Investimento.Domain\\Repository\\Abstract\\ISimulacaoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T11:27:16.533Z",
+              "WhenOpened": "2025-11-18T12:23:07.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "IProdutoInvestimentoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Repository\\Abstract\\IProdutoInvestimentoRepository.cs",
-              "RelativeDocumentMoniker": "..\\Painel.Investimento.Domain\\Repository\\Abstract\\IProdutoInvestimentoRepository.cs",
-              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Repository\\Abstract\\IProdutoInvestimentoRepository.cs",
-              "RelativeToolTip": "..\\Painel.Investimento.Domain\\Repository\\Abstract\\IProdutoInvestimentoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ISimulacaoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Repository\\Abstract\\ISimulacaoRepository.cs",
+              "RelativeDocumentMoniker": "..\\Painel.Investimento.Domain\\Repository\\Abstract\\ISimulacaoRepository.cs",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Repository\\Abstract\\ISimulacaoRepository.cs",
+              "RelativeToolTip": "..\\Painel.Investimento.Domain\\Repository\\Abstract\\ISimulacaoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T11:27:40.254Z",
+              "WhenOpened": "2025-11-18T12:22:15.445Z",
               "EditorCaption": ""
             },
             {
@@ -94,9 +78,22 @@
               "RelativeDocumentMoniker": "..\\Painel.Investimento.Aplication\\UseCaseInvestimentos\\SimularInvestimentoUseCase.cs",
               "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Aplication\\UseCaseInvestimentos\\SimularInvestimentoUseCase.cs",
               "RelativeToolTip": "..\\Painel.Investimento.Aplication\\UseCaseInvestimentos\\SimularInvestimentoUseCase.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAIAwwGIAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAlwHcAAABbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T10:44:26.204Z",
+              "WhenOpened": "2025-11-18T12:19:32.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SimulacoesController.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Controllers\\SimulacoesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SimulacoesController.cs",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Controllers\\SimulacoesController.cs",
+              "RelativeToolTip": "Controllers\\SimulacoesController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAuwD0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T12:14:44.48Z",
               "EditorCaption": ""
             },
             {
@@ -107,22 +104,9 @@
               "RelativeDocumentMoniker": "..\\Painel.Investimento.Domain\\Models\\Simulacao.cs",
               "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.Investimento.Domain\\Models\\Simulacao.cs",
               "RelativeToolTip": "..\\Painel.Investimento.Domain\\Models\\Simulacao.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAmwEIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAmwC8AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T10:40:18.223Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SimulacoesController.cs",
-              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Controllers\\SimulacoesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\SimulacoesController.cs",
-              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\CaixaVerso2025\\caixaverso2025\\Painel.investimento.API\\Controllers\\SimulacoesController.cs",
-              "RelativeToolTip": "Controllers\\SimulacoesController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwB4AAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T23:47:19.964Z",
               "EditorCaption": ""
             }
           ]
