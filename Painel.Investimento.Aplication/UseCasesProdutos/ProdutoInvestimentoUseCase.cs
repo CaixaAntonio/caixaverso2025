@@ -42,7 +42,6 @@ namespace Painel.Investimento.Aplication.UseCasesProdutos
             return produto;
         }
 
-        // ✅ Obter por Id
         public async Task<ProdutoInvestimento?> ObterPorIdAsync(int id)
         {
             return await _repository.GetByIdAsync(id);

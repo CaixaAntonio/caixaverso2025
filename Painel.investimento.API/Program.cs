@@ -11,6 +11,7 @@ using Painel.Investimento.API.Mappings;
 using Painel.Investimento.API.ViewModels.Validators;
 using Painel.Investimento.Aplication.UseCaseInvestimentos;
 using Painel.Investimento.Aplication.UseCasesCadastros;
+using Painel.Investimento.Aplication.useCaseSimulacoes;
 using Painel.Investimento.Aplication.UseCasesProdutos;
 using Painel.Investimento.Application.Mappings;
 using Painel.Investimento.Application.UseCaseInvestimentos;
@@ -44,6 +45,8 @@ builder.Services.AddScoped<InvestimentosUseCase>();
 builder.Services.AddScoped<CalcularPerfilDeRiscoUseCase>();
 builder.Services.AddScoped<SimularInvestimentoUseCase>();
 builder.Services.AddScoped<ConsultarHistoricoSimulacoesUseCase>();
+builder.Services.AddScoped<ConsultarSimulacoesAgrupadasUseCase>();
+builder.Services.AddScoped<RecomendarProdutosUseCase>();
 
 //Repository
 

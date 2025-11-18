@@ -1,4 +1,5 @@
-﻿using Painel.Investimento.Domain.Models;
+﻿using Painel.Investimento.Application.DTOs;
+using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repository.Abstract;
 
 namespace Painel.Investimento.Aplication.UseCaseInvestimentos
@@ -19,12 +20,7 @@ namespace Painel.Investimento.Aplication.UseCaseInvestimentos
             _produtoRepository = produtoRepository;
             _investimento = inestimento;
             _unitOfWork = unitOfWork;
-        }
-
-
-
-
-        // ✅ Registrar novo investimento
+        }       
         public async Task<Investimentos?> RegistrarAsync(
             int clienteId,
             int produtoInvestimentoId,
@@ -51,8 +47,7 @@ namespace Painel.Investimento.Aplication.UseCaseInvestimentos
 
             return investimento;
         }
-
-        // ✅ Retirar investimento
+               
         public async Task<Investimentos?> RetirarInvestimentoAsync(
             int clienteId,
             int produtoInvestimentoId,
@@ -88,15 +83,11 @@ namespace Painel.Investimento.Aplication.UseCaseInvestimentos
 
             return investimento;
         }
-
-        // ✅ Obter investimento por Id
+               
         public async Task<Investimentos?> ObterPorIdAsync(int id) => await _repository.ObterPorIdAsync(id);
-
-        // ✅ Listar todos os investimentos de um cliente
+        
         public async Task<IEnumerable<Investimentos>> ListarPorClienteAsync(int clienteId) =>
-            await _repository.ObterPorClienteAsync(clienteId);
-
-        // ✅ Atualizar investimento (exemplo: valor ou prazo)
+            await _repository.ObterPorClienteAsync(clienteId);       
         public async Task<Investimentos?> AtualizarAsync(int id, decimal? novoValor, int? novoPrazoMeses)
         {
             var investimento = await _repository.ObterPorIdAsync(id);
@@ -108,14 +99,19 @@ namespace Painel.Investimento.Aplication.UseCaseInvestimentos
             if (novoPrazoMeses.HasValue)
                 investimento.GetType().GetProperty("PrazoMeses")?.SetValue(investimento, novoPrazoMeses);
 
-
-
-
             await _unitOfWork.CommitAsync();
             return investimento;
         }
 
-        // ✅ Remover investimento
+        public decimal CalcularRentabilidade(decimal ValorInvestido, decimal ValorRetirado )
+        {
+            if (ValorInvestido !=0 && ValorInvestido > 0)
+            {
+                var ganho = ValorRetirado - ValorInvestido;
+                return ganho / ValorInvestido;
+            }
+            return 0;
+        }
         public async Task<bool> RemoverAsync(int id)
         {
             var investimento = await _repository.ObterPorIdAsync(id);

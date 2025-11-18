@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Painel.investimento.Infra.Data;
+using Painel.Investimento.Application.DTOs;
 using Painel.Investimento.Domain.Dtos;
 using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repository.Abstract;
@@ -27,14 +28,14 @@ namespace Painel.Investimento.Infra.Repositories
                                            .Where(s => s.ClienteId == clienteId)
                                            .ToListAsync();
 
-            // Mapeia de entidade para DTO
+            
             return simulacoes.Select(s => new SimulacaoInvestimentoResponse
             {
                 ProdutoValidado = new ProdutoValidadoDto
                 {
-                    Id = 0, // se não tiver FK para ProdutoInvestimento
+                    Id = 0, 
                     Nome = s.NomeProduto,
-                    Tipo = "", // pode ser preenchido se houver relacionamento
+                    Tipo = "", 
                     Rentabilidade = 0,
                     Risco = 0
                 },
@@ -47,11 +48,32 @@ namespace Painel.Investimento.Infra.Repositories
                 DataSimulacao = s.DataSimulacao
             });
         }
+        
+        public async Task<IEnumerable<SimulacaoPorDiaProdutoResponse>> GetSimulacoesAgrupadasAsync()
+        {
+            return await _context.Simulacoes
+                .GroupBy(s => new { s.NomeProduto, Data = s.DataSimulacao.Date })
+                .Select(g => new SimulacaoPorDiaProdutoResponse
+                {
+                    Produto = g.Key.NomeProduto,
+                    Data = g.Key.Data,
+                    QuantidadeSimulacoes = g.Count(),
+                    MediaValorFinal = g.Average(s => s.ValorFinal)
+                })
+                .ToListAsync();
+        }
 
         public async Task<Simulacao?> GetByIdAsync(int id)
         {
             return await _context.Simulacoes
                                  .FirstOrDefaultAsync(s => s.Id == id);
         }
+
+        public async Task<IEnumerable<Simulacao>> GetAllAsync()
+        {
+            return await _context.Simulacoes.ToListAsync();
+        }
+
+
     }
 }

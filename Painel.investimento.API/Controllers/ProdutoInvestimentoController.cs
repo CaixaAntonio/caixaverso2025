@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Painel.Investimento.Aplication.UseCasesProdutos;
+using Painel.Investimento.Application.UseCaseInvestimentos;
 using Painel.Investimento.Domain.Dtos;
 using Painel.Investimento.Domain.Models;
 
@@ -11,12 +12,27 @@ namespace Painel.Investimento.API.Controllers
     public class ProdutoInvestimentoController : ControllerBase
     {
         private readonly ProdutoInvestimentoUseCase _useCase;
+        private readonly RecomendarProdutosUseCase _recomenda;
         private readonly IMapper _mapper;
 
-        public ProdutoInvestimentoController(ProdutoInvestimentoUseCase useCase, IMapper mapper)
+        public ProdutoInvestimentoController(ProdutoInvestimentoUseCase useCase, RecomendarProdutosUseCase recomenda, IMapper mapper)
         {
             _useCase = useCase;
+            _recomenda = recomenda;
             _mapper = mapper;
+        }
+
+
+
+
+        /// <summary>
+        /// Recomenda produtos de investimento para o cliente
+        /// </summary>
+        [HttpGet("produtos-recomendados/{clienteId}")]
+        public async Task<ActionResult<IEnumerable<ProdutoRecomendadoDto>>> GetProdutosRecomendados(int clienteId)
+        {
+            var result = await _recomenda.ExecuteAsync(clienteId);
+            return Ok(result);
         }
 
         // ✅ POST: api/produtoinvestimento

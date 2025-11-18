@@ -11,8 +11,9 @@ using Painel.Investimento.Infra.Repositories;
 
 namespace Painel.Investimento.API.Controllers
 {
-    [Route("api/cliente")]
+    
     [ApiController]
+    [Route("api")]
     public class ClienteController : ControllerBase
     {
         private readonly ClienteUseCase _useCase;
@@ -34,10 +35,10 @@ namespace Painel.Investimento.API.Controllers
         /// <summary>
         /// Calcula e retorna o perfil de risco do cliente com base nos seus investimentos.
         /// </summary>
-        [HttpGet("{id:int}/perfil-risco")]
-        public async Task<ActionResult<object>> GetPerfilRisco(int id)
+        [HttpGet("perfil-risco-dinamico/{clienteId:int}")]
+        public async Task<ActionResult<object>> GetPerfilRisco(int clienteId)
         {
-            var investimentos = await _investimentoRepo.ObterPorClienteAsync(id);
+            var investimentos = await _investimentoRepo.ObterPorClienteAsync(clienteId);
             if (investimentos == null || !investimentos.Any())
                 return NotFound("Nenhum investimento encontrado para este cliente.");
 
@@ -46,7 +47,7 @@ namespace Painel.Investimento.API.Controllers
 
             return Ok(new
             {
-                ClienteId = id,
+                ClienteId = clienteId,
                 Pontuacao = score,
                 Perfil = perfil
             });

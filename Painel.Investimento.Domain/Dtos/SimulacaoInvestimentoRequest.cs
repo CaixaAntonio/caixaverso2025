@@ -56,4 +56,22 @@ namespace Painel.Investimento.Domain.Dtos
         public DateTime DataSimulacao { get; set; }
     }
 
+    public class SimulacaoPorDiaProdutoResponse
+    {
+        public string Produto { get; set; }
+        public DateTime Data { get; set; }
+        public int QuantidadeSimulacoes { get; set; }
+        public decimal MediaValorFinal { get; set; }
+    }
+    public class SimulacaoResumoDto
+    {
+        public int Id { get; set; }
+        public int ClienteId { get; set; }
+        public string Produto { get; set; } = string.Empty;
+        public decimal ValorInvestido { get; set; }
+        public decimal ValorFinal { get; set; }
+        public int PrazoMeses { get; set; }
+        public DateTime DataSimulacao { get; set; }
+    }
+
 }

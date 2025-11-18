@@ -35,4 +35,14 @@
         public bool Crise { get; set; }
         public decimal? ValorRetirado { get; set; }
     }
+
+    public class InvestimentoResumoDto
+    {
+        public int Id { get; set; }
+        public string Tipo { get; set; } = string.Empty;
+        public decimal Valor { get; set; }
+        public decimal Rentabilidade { get; set; }
+        public DateTime Data { get; set; }
+    }
+
 }

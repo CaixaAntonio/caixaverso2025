@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Painel.Investimento.Aplication.UseCaseInvestimentos
+namespace Painel.Investimento.Aplication.useCaseSimulacoes
 {
     public class ConsultarHistoricoSimulacoesUseCase
     {

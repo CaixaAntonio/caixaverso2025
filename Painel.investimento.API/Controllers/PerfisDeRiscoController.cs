@@ -35,7 +35,7 @@ namespace Painel.Investimento.API.Controllers
         /// <summary>
         /// Retorna um perfil de risco específico pelo Id.
         /// </summary>
-        [HttpGet("{id:int}")]
+        [HttpGet("{PerfiDeRiscoId:int}")]
         public async Task<ActionResult<PerfilDeRiscoDto>> GetPerfil(int id)
         {
             var perfil = await _perfilRepo.GetByIdAsync(id);

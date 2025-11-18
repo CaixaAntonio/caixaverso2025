@@ -1,0 +1,21 @@
+﻿using Painel.Investimento.Application.DTOs;
+using Painel.Investimento.Domain.Dtos;
+using Painel.Investimento.Domain.Repository.Abstract;
+
+namespace Painel.Investimento.Application.UseCaseInvestimentos
+{
+    public class ConsultarSimulacoesAgrupadasUseCase
+    {
+        private readonly ISimulacaoRepository _simulacaoRepo;
+
+        public ConsultarSimulacoesAgrupadasUseCase(ISimulacaoRepository simulacaoRepo)
+        {
+            _simulacaoRepo = simulacaoRepo;
+        }
+
+        public async Task<IEnumerable<SimulacaoPorDiaProdutoResponse>> ExecuteAsync()
+        {
+            return await _simulacaoRepo.GetSimulacoesAgrupadasAsync();
+        }
+    }
+}

@@ -1,29 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-using Painel.Investimento.Application.UseCaseInvestimentos;
 using Painel.Investimento.Domain.Dtos;
-using Painel.Investimento.Aplication.UseCaseInvestimentos;
+using Painel.Investimento.Aplication.useCaseSimulacoes;
+using Painel.Investimento.Application.UseCaseInvestimentos;
 
 namespace Painel.Investimento.API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api")]
     public class SimulacoesController : ControllerBase
     {
+        private readonly ConsultarSimulacoesAgrupadasUseCase _useCase;
         private readonly SimularInvestimentoUseCase _simularInvestimento;
         private readonly ConsultarHistoricoSimulacoesUseCase _consultarHistorico;
         private readonly IMapper _mapper;
 
-        public SimulacoesController(SimularInvestimentoUseCase simularInvestimento,
-                                    ConsultarHistoricoSimulacoesUseCase consultarHistorico,
-                                    IMapper mapper)
+        public SimulacoesController(ConsultarSimulacoesAgrupadasUseCase useCase, SimularInvestimentoUseCase simularInvestimento,
+            ConsultarHistoricoSimulacoesUseCase consultarHistorico, IMapper mapper)
         {
+            _useCase = useCase;
             _simularInvestimento = simularInvestimento;
             _consultarHistorico = consultarHistorico;
             _mapper = mapper;
         }
 
-        [HttpPost("investimento")]
+        [HttpPost("simular-investimento")]
         public async Task<ActionResult<SimulacaoInvestimentoResponse>> Simular([FromBody] SimulacaoInvestimentoRequest request)
         {
             var useCaseRequest = _mapper.Map<SimulacaoInvestimentoRequest>(request);
@@ -34,6 +35,17 @@ namespace Painel.Investimento.API.Controllers
 
             return Ok(response);
         }
+
+        /// <summary>
+        /// Retorna todas as simulações realizadas
+        /// </summary>
+        [HttpGet("simulacoes")]
+        public async Task<ActionResult<IEnumerable<SimulacaoResumoDto>>> GetSimulacoes()
+        {
+            var result = await _simularInvestimento.ListarTodasAsync();
+            return Ok(result);
+        }
+
 
         [HttpGet("{clienteId}")]
         public async Task<ActionResult<SimulacaoHistoricoResponse>> GetHistorico(int clienteId)
@@ -66,6 +78,18 @@ namespace Painel.Investimento.API.Controllers
             {
                 return NotFound(ex.Message);
             }
+        }
+
+        /// <summary>
+        /// Endpoint retorna Simulaçoes por dia e produto
+        /// </summary>
+        /// <returns></returns>
+        
+        [HttpGet("simulacoes/por-produto-dia")]
+        public async Task<IActionResult> GetSimulacoesAgrupadas()
+        {
+            var result = await _useCase.ExecuteAsync();
+            return Ok(result);
         }
     }
 }

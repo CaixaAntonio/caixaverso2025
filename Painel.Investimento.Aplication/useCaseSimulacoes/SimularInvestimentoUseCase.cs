@@ -2,7 +2,7 @@
 using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repository.Abstract;
 
-namespace Painel.Investimento.Application.UseCaseInvestimentos
+namespace Painel.Investimento.Aplication.useCaseSimulacoes
 {
     public class SimularInvestimentoUseCase
     {
@@ -139,6 +139,27 @@ namespace Painel.Investimento.Application.UseCaseInvestimentos
                 DataSimulacao = simulacao.DataSimulacao
             };
         }
-    }    
+
+        /// <summary>
+        /// Retorna todas as simulações realizadas
+        /// </summary>
+        public async Task<IEnumerable<SimulacaoResumoDto>> ListarTodasAsync()
+        {
+            var simulacoes = await _simulacaoRepo.GetAllAsync();
+
+            return simulacoes.Select(s => new SimulacaoResumoDto
+            {
+                Id = s.Id,
+                ClienteId = s.ClienteId,
+                Produto = s.NomeProduto,
+                ValorInvestido = s.ValorInicial,
+                ValorFinal = s.ValorFinal,
+                PrazoMeses = s.PrazoMeses,
+                DataSimulacao = s.DataSimulacao
+            });
+        }
+
+
+    }
 }
 
