@@ -1,4 +1,5 @@
 ﻿using Painel.Investimento.Domain.Dtos;
+using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repository.Abstract;
 
 namespace Painel.Investimento.Application.UseCaseInvestimentos
@@ -6,10 +7,17 @@ namespace Painel.Investimento.Application.UseCaseInvestimentos
     public class SimularInvestimentoUseCase
     {
         private readonly IProdutoInvestimentoRepository _produtoRepo;
+        private readonly ISimulacaoRepository _simulacaoRepo;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public SimularInvestimentoUseCase(IProdutoInvestimentoRepository produtoRepo)
+        public SimularInvestimentoUseCase(
+            IProdutoInvestimentoRepository produtoRepo,
+            ISimulacaoRepository simulacaoRepo,
+            IUnitOfWork unitOfWork)
         {
             _produtoRepo = produtoRepo;
+            _simulacaoRepo = simulacaoRepo;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<SimulacaoInvestimentoResponse> ExecuteAsync(SimulacaoInvestimentoRequest request)
@@ -22,13 +30,11 @@ namespace Painel.Investimento.Application.UseCaseInvestimentos
             produto.Validar();
 
             decimal valorFinal = 0;
-            decimal rentabilidadeEfetiva = 0;
 
             // 2. Calcular valor final conforme tipo de produto
             switch (produto.Tipo.ToLower())
             {
                 case "poupança":
-                    // regra simplificada: ~0,5% ao mês
                     decimal taxaPoupanca = 0.005m;
                     valorFinal = request.Valor * (decimal)Math.Pow((double)(1 + taxaPoupanca), request.PrazoMeses);
                     break;
@@ -36,11 +42,8 @@ namespace Painel.Investimento.Application.UseCaseInvestimentos
                 case "cdb":
                 case "lci":
                 case "lca":
-                    // juros compostos com base na rentabilidade anual
                     decimal taxaMensalCdb = produto.RentabilidadeAnual / 12 / 100;
                     valorFinal = request.Valor * (decimal)Math.Pow((double)(1 + taxaMensalCdb), request.PrazoMeses);
-
-                    // tributação regressiva (simplificada: 15% sobre ganho)
                     decimal ganhoCdb = valorFinal - request.Valor;
                     valorFinal -= ganhoCdb * 0.15m;
                     break;
@@ -48,7 +51,6 @@ namespace Painel.Investimento.Application.UseCaseInvestimentos
                 case "fundos renda fixa":
                     decimal taxaMensalRF = produto.RentabilidadeAnual / 12 / 100;
                     valorFinal = request.Valor * (decimal)Math.Pow((double)(1 + taxaMensalRF), request.PrazoMeses);
-                    // tributação simplificada: 20% sobre ganho
                     decimal ganhoRF = valorFinal - request.Valor;
                     valorFinal -= ganhoRF * 0.20m;
                     break;
@@ -56,7 +58,6 @@ namespace Painel.Investimento.Application.UseCaseInvestimentos
                 case "fundos multimercado":
                     decimal taxaMensalMM = produto.RentabilidadeAnual / 12 / 100;
                     valorFinal = request.Valor * (decimal)Math.Pow((double)(1 + taxaMensalMM), request.PrazoMeses);
-                    // tributação simplificada: 20% sobre ganho
                     decimal ganhoMM = valorFinal - request.Valor;
                     valorFinal -= ganhoMM * 0.20m;
                     break;
@@ -66,23 +67,34 @@ namespace Painel.Investimento.Application.UseCaseInvestimentos
                 case "home broker caixa":
                     decimal taxaMensalAcoes = produto.RentabilidadeAnual / 12 / 100;
                     valorFinal = request.Valor * (decimal)Math.Pow((double)(1 + taxaMensalAcoes), request.PrazoMeses);
-                    // tributação simplificada: 15% sobre ganho
                     decimal ganhoAcoes = valorFinal - request.Valor;
                     valorFinal -= ganhoAcoes * 0.15m;
                     break;
 
                 default:
-                    // fallback: juros compostos padrão
                     decimal taxaMensal = produto.RentabilidadeAnual / 12 / 100;
                     valorFinal = request.Valor * (decimal)Math.Pow((double)(1 + taxaMensal), request.PrazoMeses);
                     break;
             }
 
-            // 3. Rentabilidade efetiva
-            rentabilidadeEfetiva = valorFinal - request.Valor;
+            // 3. Criar entidade Simulacao usando construtor rico
+            var simulacao = new Simulacao(
+                clienteId: request.ClienteId,
+                nomeProduto: produto.Nome,
+                valorInicial: request.Valor,
+                prazoMeses: request.PrazoMeses,
+                valorFinal: valorFinal
+            );
 
-            // 4. Montar response
-            return new SimulacaoInvestimentoResponse
+            // 4. Validar entidade
+            simulacao.Validar();
+
+            // 5. Persistir no banco
+            await _simulacaoRepo.AddAsync(simulacao);
+            await _unitOfWork.CommitAsync();
+
+            // 6. Montar response
+            var response = new SimulacaoInvestimentoResponse
             {
                 ProdutoValidado = new ProdutoValidadoDto
                 {
@@ -94,13 +106,14 @@ namespace Painel.Investimento.Application.UseCaseInvestimentos
                 },
                 ResultadoSimulacao = new ResultadoSimulacaoDto
                 {
-                    ValorFinal = valorFinal,
-                    RentabilidadeEfetiva = rentabilidadeEfetiva,
-                    PrazoMeses = request.PrazoMeses
+                    ValorFinal = simulacao.ValorFinal,
+                    RentabilidadeEfetiva = simulacao.RentabilidadeEfetiva,
+                    PrazoMeses = simulacao.PrazoMeses
                 },
-                DataSimulacao = DateTime.UtcNow
+                DataSimulacao = simulacao.DataSimulacao
             };
-        }
 
+            return response;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Painel.Investimento.Domain.Dtos;
+using Painel.Investimento.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Painel.Investimento.Domain.Repository.Abstract
 {
     public interface ISimulacaoRepository
     {
-        Task AddAsync(SimulacaoInvestimentoResponse simulacao, int clienteId);
+        Task AddAsync(Simulacao simulacao);
         Task<IEnumerable<SimulacaoInvestimentoResponse>> GetByClienteIdAsync(int clienteId);
     }
 

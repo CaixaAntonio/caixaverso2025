@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Painel.Investimento.Aplication.UseCaseInvestimentos;
+using AutoMapper;
 using Painel.Investimento.Application.UseCaseInvestimentos;
 using Painel.Investimento.Domain.Dtos;
+using Painel.Investimento.Aplication.UseCaseInvestimentos;
 
 namespace Painel.Investimento.API.Controllers
 {
@@ -11,32 +12,40 @@ namespace Painel.Investimento.API.Controllers
     {
         private readonly SimularInvestimentoUseCase _simularInvestimento;
         private readonly ConsultarHistoricoSimulacoesUseCase _consultarHistorico;
+        private readonly IMapper _mapper;
 
         public SimulacoesController(SimularInvestimentoUseCase simularInvestimento,
-                                    ConsultarHistoricoSimulacoesUseCase consultarHistorico)
+                                    ConsultarHistoricoSimulacoesUseCase consultarHistorico,
+                                    IMapper mapper)
         {
             _simularInvestimento = simularInvestimento;
             _consultarHistorico = consultarHistorico;
+            _mapper = mapper;
         }
 
         [HttpPost("investimento")]
         public async Task<ActionResult<SimulacaoInvestimentoResponse>> Simular([FromBody] SimulacaoInvestimentoRequest request)
         {
-            var response = await _simularInvestimento.ExecuteAsync(request);
-            // salvar no repositório de histórico
-            // await _simulacaoRepo.AddAsync(response, request.ClienteId);
+            var useCaseRequest = _mapper.Map<SimulacaoInvestimentoRequest>(request);
+
+            var useCaseResponse = await _simularInvestimento.ExecuteAsync(useCaseRequest);
+
+            var response = _mapper.Map<SimulacaoInvestimentoResponse>(useCaseResponse);
+
             return Ok(response);
         }
 
         [HttpGet("{clienteId}")]
         public async Task<ActionResult<SimulacaoHistoricoResponse>> GetHistorico(int clienteId)
         {
-            var response = await _consultarHistorico.ExecuteAsync(clienteId);
-            if (response.Simulacoes == null || !response.Simulacoes.Any())
+            var useCaseResponse = await _consultarHistorico.ExecuteAsync(clienteId);
+
+            if (useCaseResponse.Simulacoes == null || !useCaseResponse.Simulacoes.Any())
                 return NotFound("Nenhuma simulação encontrada para este cliente.");
+
+            var response = _mapper.Map<SimulacaoHistoricoResponse>(useCaseResponse);
 
             return Ok(response);
         }
     }
-
 }

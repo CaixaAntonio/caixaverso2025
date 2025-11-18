@@ -1,30 +1,51 @@
-﻿using Painel.Investimento.Domain.Dtos;
+﻿using Microsoft.EntityFrameworkCore;
+using Painel.investimento.Infra.Data;
+using Painel.Investimento.Domain.Dtos;
+using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repository.Abstract;
 
 namespace Painel.Investimento.Infra.Repositories
 {
     public class SimulacaoRepository : ISimulacaoRepository
     {
-        // Armazenamento em memória
-        private static readonly Dictionary<int, List<SimulacaoInvestimentoResponse>> _simulacoes
-            = new Dictionary<int, List<SimulacaoInvestimentoResponse>>();
+        private readonly AppDbContext _context;
 
-        public Task AddAsync(SimulacaoInvestimentoResponse simulacao, int clienteId)
+        public SimulacaoRepository(AppDbContext context)
         {
-            if (!_simulacoes.ContainsKey(clienteId))
-                _simulacoes[clienteId] = new List<SimulacaoInvestimentoResponse>();
-
-            _simulacoes[clienteId].Add(simulacao);
-
-            return Task.CompletedTask;
+            _context = context;
         }
 
-        public Task<IEnumerable<SimulacaoInvestimentoResponse>> GetByClienteIdAsync(int clienteId)
+        public async Task AddAsync(Simulacao simulacao)
         {
-            if (_simulacoes.ContainsKey(clienteId))
-                return Task.FromResult(_simulacoes[clienteId].AsEnumerable());
+            await _context.Simulacoes.AddAsync(simulacao);
+            await _context.SaveChangesAsync();
+        }
 
-            return Task.FromResult(Enumerable.Empty<SimulacaoInvestimentoResponse>());
+        public async Task<IEnumerable<SimulacaoInvestimentoResponse>> GetByClienteIdAsync(int clienteId)
+        {
+            var simulacoes = await _context.Simulacoes
+                                           .Where(s => s.ClienteId == clienteId)
+                                           .ToListAsync();
+
+            // Mapeia de entidade para DTO
+            return simulacoes.Select(s => new SimulacaoInvestimentoResponse
+            {
+                ProdutoValidado = new ProdutoValidadoDto
+                {
+                    Id = 0, // se não tiver FK para ProdutoInvestimento
+                    Nome = s.NomeProduto,
+                    Tipo = "", // pode ser preenchido se houver relacionamento
+                    Rentabilidade = 0,
+                    Risco = 0
+                },
+                ResultadoSimulacao = new ResultadoSimulacaoDto
+                {
+                    ValorFinal = s.ValorFinal,
+                    RentabilidadeEfetiva = s.RentabilidadeEfetiva,
+                    PrazoMeses = s.PrazoMeses
+                },
+                DataSimulacao = s.DataSimulacao
+            });
         }
     }
 }

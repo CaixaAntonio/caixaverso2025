@@ -66,6 +66,8 @@ builder.Services.AddAutoMapper(typeof(PerfilProdutoProfile));
 builder.Services.AddAutoMapper(typeof(InvestimentoProfile));
 builder.Services.AddAutoMapper(typeof(UsuarioProfile));
 builder.Services.AddAutoMapper(typeof(PerfilDeRisco));
+builder.Services.AddAutoMapper(typeof(SimulacaoProfile));
+
 
 
 // Registro do FluentValidation moderno
