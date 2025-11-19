@@ -7,15 +7,14 @@ using Microsoft.OpenApi.Models;
 using Painel.investimento.Infra.Data;
 using Painel.investimento.Infra.Repositorie;
 using Painel.Investimento.API.Mapper;
-using Painel.Investimento.API.Mappings;
+using Painel.Investimento.API.Middlewares;
 using Painel.Investimento.API.ViewModels.Validators;
 using Painel.Investimento.Aplication.UseCaseInvestimentos;
 using Painel.Investimento.Aplication.UseCasesCadastros;
 using Painel.Investimento.Aplication.useCaseSimulacoes;
+using Painel.Investimento.Aplication.UseCasesLogin;
 using Painel.Investimento.Aplication.UseCasesProdutos;
-using Painel.Investimento.Application.Mappings;
-using Painel.Investimento.Application.UseCaseInvestimentos;
-using Painel.Investimento.Application.UserCases;
+using Painel.Investimento.Application.Services;
 using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Repositories;
 using Painel.Investimento.Domain.Repository.Abstract;
@@ -48,6 +47,7 @@ builder.Services.AddScoped<ConsultarHistoricoSimulacoesUseCase>();
 builder.Services.AddScoped<ConsultarSimulacoesAgrupadasUseCase>();
 builder.Services.AddScoped<RecomendarProdutosUseCase>();
 
+
 //Repository
 
 builder.Services.AddScoped<IInvestimentosRepository, InvestimentosRepository>();
@@ -58,8 +58,11 @@ builder.Services.AddScoped<IRiskProfileService, RiskProfileService>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<ISimulacaoRepository, SimulacaoRepository>();
 
+builder.Services.AddSingleton<ITelemetriaService, TelemetriaService>();
+
 builder.Services.AddScoped<IAuthService, JwtAuthService>();
 builder.Services.AddScoped<LoginUseCase>();
+
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -143,7 +146,8 @@ builder.Services.AddSwaggerGen(c =>
 });
 var app = builder.Build();
 
-app.UseMiddleware<Painel.Investimento.API.Middlewares.ExceptionMiddleware>();
+app.UseMiddleware<ExceptionMiddleware>();
+app.UseMiddleware<TelemetriaMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

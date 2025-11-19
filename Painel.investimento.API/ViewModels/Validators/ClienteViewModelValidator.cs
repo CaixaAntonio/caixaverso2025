@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using Painel.Investimento.Domain.Dtos;
 
-namespace Painel.Investimento.Application.Validators
+namespace Painel.Investimento.API.ViewModels.Validators
 {
     public class ClienteViewModelValidator : AbstractValidator<ClienteRequestDto>
     {

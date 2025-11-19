@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Painel.Investimento.Domain"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Painel.investimento.Infra", "..\Painel.investimento.Infra\Painel.investimento.Infra.csproj", "{186D8410-68E2-4DA6-ADBF-020FCC3F4570}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Painel.Investimentos.Testes", "..\Painel.Investimentos.Testes\Painel.Investimentos.Testes.csproj", "{7A1B0465-71A0-4510-9580-80F42CB59497}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Painel.Investimento.Testes", "..\Painel.Investimentos.Testes\Painel.Investimento.Testes.csproj", "{7A1B0465-71A0-4510-9580-80F42CB59497}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Painel.Investimento.IntegrationTests", "..\Painel.Investimento.IntegrationTests\Painel.Investimento.IntegrationTests.csproj", "{B4635B29-872B-4085-AA0E-72F4A6A58EDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{7A1B0465-71A0-4510-9580-80F42CB59497}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A1B0465-71A0-4510-9580-80F42CB59497}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A1B0465-71A0-4510-9580-80F42CB59497}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4635B29-872B-4085-AA0E-72F4A6A58EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4635B29-872B-4085-AA0E-72F4A6A58EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4635B29-872B-4085-AA0E-72F4A6A58EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4635B29-872B-4085-AA0E-72F4A6A58EDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

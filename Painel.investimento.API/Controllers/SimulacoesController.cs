@@ -2,7 +2,6 @@
 using AutoMapper;
 using Painel.Investimento.Domain.Dtos;
 using Painel.Investimento.Aplication.useCaseSimulacoes;
-using Painel.Investimento.Application.UseCaseInvestimentos;
 
 namespace Painel.Investimento.API.Controllers
 {
@@ -47,7 +46,7 @@ namespace Painel.Investimento.API.Controllers
         }
 
 
-        [HttpGet("{clienteId}")]
+        [HttpGet("simulacoes/{clienteId}")]
         public async Task<ActionResult<SimulacaoHistoricoResponse>> GetHistorico(int clienteId)
         {
             var useCaseResponse = await _consultarHistorico.ExecuteAsync(clienteId);

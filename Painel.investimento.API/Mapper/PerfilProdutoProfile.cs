@@ -2,7 +2,7 @@
 using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Domain.Dtos;
 
-namespace Painel.Investimento.API.Mappings
+namespace Painel.Investimento.API.Mapper
 {
     public class PerfilProdutoProfile : Profile
     {

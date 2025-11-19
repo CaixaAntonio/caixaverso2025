@@ -33,6 +33,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Services\" />
+	  <Folder Include="Telemetria\" />
 	</ItemGroup>
 
 	

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Painel.Investimento.Aplication.UseCasesProdutos;
-using Painel.Investimento.Application.UseCaseInvestimentos;
 using Painel.Investimento.Domain.Dtos;
 using Painel.Investimento.Domain.Models;
 
@@ -21,9 +20,6 @@ namespace Painel.Investimento.API.Controllers
             _recomenda = recomenda;
             _mapper = mapper;
         }
-
-
-
 
         /// <summary>
         /// Recomenda produtos de investimento para o cliente

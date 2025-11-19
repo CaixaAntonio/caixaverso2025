@@ -48,8 +48,11 @@ namespace Painel.Investimento.API.Controllers
             return Ok(new
             {
                 ClienteId = clienteId,
+                Perfil = perfil.Split(',')[0].Trim(),
                 Pontuacao = score,
-                Perfil = perfil
+                Descrição = perfil.Split(',')[1].Trim()
+
+
             });
         }
 

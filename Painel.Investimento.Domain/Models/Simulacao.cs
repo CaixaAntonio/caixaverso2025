@@ -12,8 +12,7 @@ namespace Painel.Investimento.Domain.Models
         public decimal RentabilidadeEfetiva { get; private set; }
         public int PrazoMeses { get; private set; }
         public DateTime DataSimulacao { get; private set; }
-
-        // 🔹 Construtor rico: força consistência ao criar
+               
         public Simulacao(int clienteId, string nomeProduto, decimal valorInicial, int prazoMeses, decimal valorFinal)
         {
             if (clienteId <= 0)
@@ -28,29 +27,28 @@ namespace Painel.Investimento.Domain.Models
             if (prazoMeses <= 0)
                 throw new ArgumentException("Prazo deve ser maior que zero.");
 
+            var rentabilidade = ((valorFinal - valorInicial) / valorInicial) *100;
+
             ClienteId = clienteId;
             NomeProduto = nomeProduto;
-            ValorInicial = valorInicial;
+            ValorInicial = Math.Round(valorInicial, 2);
             PrazoMeses = prazoMeses;
-            ValorFinal = valorFinal;
-            RentabilidadeEfetiva = valorFinal - valorInicial;
+            ValorFinal = Math.Round(valorFinal, 2);
+            RentabilidadeEfetiva = Math.Round(rentabilidade, 2);
             DataSimulacao = DateTime.UtcNow;
         }
-
-        // 🔹 Método de negócio: calcula rentabilidade percentual
+               
         public decimal CalcularRentabilidadePercentual()
         {
             if (ValorInicial <= 0) return 0;
             return (RentabilidadeEfetiva / ValorInicial) * 100;
         }
-
-        // 🔹 Método de negócio: verifica se a simulação atingiu um mínimo esperado
+        
         public bool EhRentavel(decimal minimoPercentual)
         {
             return CalcularRentabilidadePercentual() >= minimoPercentual;
         }
-
-        // 🔹 Validação adicional
+       
         public void Validar()
         {
             if (string.IsNullOrWhiteSpace(NomeProduto))

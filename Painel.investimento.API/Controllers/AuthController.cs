@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Painel.Investimento.Application.UserCases;
+using Painel.Investimento.Aplication.UseCasesLogin;
 
 namespace Painel.Investimento.API.Controllers
 {

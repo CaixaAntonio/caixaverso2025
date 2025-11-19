@@ -74,9 +74,9 @@ namespace Painel.Investimento.Aplication.UseCaseInvestimentos
         }
         public string ClassificarPerfil(int pontuacao)
         {
-            if (pontuacao <= 35) return "Conservador";
-            if (pontuacao <= 65) return "Moderado";
-            return "Agressivo";
+            if (pontuacao <= 35) return "Conservador, Perfil de baixo risco";
+            if (pontuacao <= 65) return "Moderado, Perfil de risco moderado";
+            return "Agressivo, Perfil de risco agressivo e alto investimento";
         }
 
 

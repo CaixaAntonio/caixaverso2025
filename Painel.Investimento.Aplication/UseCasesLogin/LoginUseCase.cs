@@ -1,6 +1,6 @@
 ﻿using Painel.Investimento.Domain.Services;
 
-namespace Painel.Investimento.Application.UserCases
+namespace Painel.Investimento.Aplication.UseCasesLogin
 {
     public class LoginUseCase
     {

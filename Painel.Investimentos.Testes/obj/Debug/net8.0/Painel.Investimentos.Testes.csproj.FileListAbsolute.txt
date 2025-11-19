@@ -100,3 +100,14 @@ C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investim
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\obj\Debug\net8.0\Painel.Investimentos.Testes.genruntimeconfig.cache
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\obj\Debug\net8.0\ref\Painel.Investimentos.Testes.dll
 C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\bin\Debug\net8.0\FluentAssertions.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\bin\Debug\net8.0\Moq.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\bin\Debug\net8.0\Painel.Investimento.Aplication.dll
+C:\Users\gabri\OneDrive\Documentos\CaixaVerso2025\caixaverso2025\Painel.Investimentos.Testes\bin\Debug\net8.0\Painel.Investimento.Aplication.pdb

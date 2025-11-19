@@ -2,7 +2,7 @@
 using Painel.Investimento.Domain.Dtos;
 using Painel.Investimento.Domain.Repository.Abstract;
 
-namespace Painel.Investimento.Application.UseCaseInvestimentos
+namespace Painel.Investimento.Aplication.useCaseSimulacoes
 {
     public class ConsultarSimulacoesAgrupadasUseCase
     {

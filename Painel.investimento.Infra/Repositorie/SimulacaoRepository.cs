@@ -37,7 +37,7 @@ namespace Painel.Investimento.Infra.Repositories
                     Nome = s.NomeProduto,
                     Tipo = "", 
                     Rentabilidade = 0,
-                    Risco = 0
+                    Risco = ConverterRisco(0)
                 },
                 ResultadoSimulacao = new ResultadoSimulacaoDto
                 {
@@ -48,7 +48,18 @@ namespace Painel.Investimento.Infra.Repositories
                 DataSimulacao = s.DataSimulacao
             });
         }
-        
+
+        private string ConverterRisco(int risco)
+        {
+            return risco switch
+            {
+                10 => "Baixo",
+                20 => "Médio",
+                30 => "Alto",
+                _ => "Desconhecido"
+            };
+        }
+
         public async Task<IEnumerable<SimulacaoPorDiaProdutoResponse>> GetSimulacoesAgrupadasAsync()
         {
             return await _context.Simulacoes

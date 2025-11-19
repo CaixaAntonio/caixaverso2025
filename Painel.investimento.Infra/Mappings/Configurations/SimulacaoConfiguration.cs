@@ -20,15 +20,15 @@ namespace Painel.Investimento.Infra.Configurations
                    .HasMaxLength(100);
 
             builder.Property(s => s.ValorInicial)
-                   .HasColumnType("decimal(18,2)")
+                   .HasPrecision(18, 2)
                    .IsRequired();
 
             builder.Property(s => s.ValorFinal)
-                   .HasColumnType("decimal(18,2)")
+                   .HasPrecision(18, 2)
                    .IsRequired();
 
             builder.Property(s => s.RentabilidadeEfetiva)
-                   .HasColumnType("decimal(18,2)")
+                   .HasPrecision(18, 2)
                    .IsRequired();
 
             builder.Property(s => s.PrazoMeses)

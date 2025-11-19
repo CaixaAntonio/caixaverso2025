@@ -21,8 +21,7 @@ namespace Painel.Investimento.Aplication.useCaseSimulacoes
         }
 
         public async Task<SimulacaoInvestimentoResponse> ExecuteAsync(SimulacaoInvestimentoRequest request)
-        {
-            // 1. Buscar produto pelo tipo
+        {           
             var produto = await _produtoRepo.GetByTipoAsync(request.NomeDoProduto);
             if (produto == null)
                 throw new InvalidOperationException("Produto de investimento não encontrado.");
@@ -30,8 +29,7 @@ namespace Painel.Investimento.Aplication.useCaseSimulacoes
             produto.Validar();
 
             decimal valorFinal = 0;
-
-            // 2. Calcular valor final conforme tipo de produto
+            
             switch (produto.Tipo.ToLower())
             {
                 case "poupança":
@@ -76,8 +74,7 @@ namespace Painel.Investimento.Aplication.useCaseSimulacoes
                     valorFinal = request.Valor * (decimal)Math.Pow((double)(1 + taxaMensal), request.PrazoMeses);
                     break;
             }
-
-            // 3. Criar entidade Simulacao usando construtor rico
+           
             var simulacao = new Simulacao(
                 clienteId: request.ClienteId,
                 nomeProduto: produto.Nome,
@@ -85,13 +82,12 @@ namespace Painel.Investimento.Aplication.useCaseSimulacoes
                 prazoMeses: request.PrazoMeses,
                 valorFinal: valorFinal
             );
-
-            // 4. Validar entidade
+           
             simulacao.Validar();
-
-            // 5. Persistir no banco
+            
             await _simulacaoRepo.AddAsync(simulacao);
             await _unitOfWork.CommitAsync();
+
 
             // 6. Montar response
             var response = new SimulacaoInvestimentoResponse
@@ -101,8 +97,8 @@ namespace Painel.Investimento.Aplication.useCaseSimulacoes
                     Id = produto.Id ?? 0,
                     Nome = produto.Nome,
                     Tipo = produto.Tipo,
-                    Rentabilidade = produto.RentabilidadeAnual,
-                    Risco = produto.Risco
+                    Rentabilidade = produto.RentabilidadeAnual, 
+                    Risco = ConverterRisco(produto.Risco) 
                 },
                 ResultadoSimulacao = new ResultadoSimulacaoDto
                 {
@@ -115,8 +111,24 @@ namespace Painel.Investimento.Aplication.useCaseSimulacoes
 
             return response;
         }
+        public enum NivelRisco
+        {
+            Baixo = 10,
+            Medio = 20,
+            Alto = 30
+        }
 
-        // 🔹 Novo método: calcula rentabilidade e verifica se é rentável
+        private string ConverterRisco(int risco)
+        {
+            return risco switch
+            {
+                10 => "Baixo",
+                20 => "Médio",
+                30 => "Alto",
+                _ => "Desconhecido"
+            };
+        }
+        
         public async Task<RentabilidadeResponse> CalcularRentabilidadeAsync(int simulacaoId, decimal minimoPercentual)
         {
             var simulacao = await _simulacaoRepo.GetByIdAsync(simulacaoId);

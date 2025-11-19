@@ -2,7 +2,7 @@
 using Painel.Investimento.Domain.Models;
 using Painel.Investimento.Application.DTOs;
 
-namespace Painel.Investimento.Application.Mappings
+namespace Painel.Investimento.API.Mapper
 {
     public class UsuarioProfile : Profile
     {

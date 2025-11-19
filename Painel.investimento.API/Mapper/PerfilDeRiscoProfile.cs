@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Painel.Investimento.Domain.Models;
 
-namespace Painel.Investimento.API.Mappings
+namespace Painel.Investimento.API.Mapper
 {
     public class PerfilDeRiscoProfile : Profile
     {
@@ -9,7 +9,7 @@ namespace Painel.Investimento.API.Mappings
         {
             // PerfilDeRisco → PerfilDeRiscoDto
             CreateMap<PerfilDeRisco, PerfilDeRiscoDto>();
-           
+
         }
     }
 }

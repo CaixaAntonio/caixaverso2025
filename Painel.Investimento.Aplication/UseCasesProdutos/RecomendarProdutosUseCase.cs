@@ -2,7 +2,7 @@
 using Painel.Investimento.Domain.Dtos;
 using Painel.Investimento.Domain.Repository.Abstract;
 
-namespace Painel.Investimento.Application.UseCaseInvestimentos
+namespace Painel.Investimento.Aplication.UseCasesProdutos
 {
     public class RecomendarProdutosUseCase
     {
@@ -27,9 +27,9 @@ namespace Painel.Investimento.Application.UseCaseInvestimentos
 
             // 3. Filtrar produtos de acordo com perfil
             var recomendados = produtos.Where(p =>
-                (perfil.Nome == "Conservador") ||
-                (perfil.Nome == "Moderado" ) ||
-                (perfil.Nome == "Agressivo") // pode pegar todos
+                perfil.Nome == "Conservador" && p.Risco == 10 ||
+                perfil.Nome == "Moderado" && p.Risco == 20 ||
+                perfil.Nome == "Agressivo" && p.Risco == 30// pode pegar todos
             );
 
             // 4. Mapear para DTO
@@ -39,7 +39,13 @@ namespace Painel.Investimento.Application.UseCaseInvestimentos
                 Nome = p.Nome,
                 Tipo = p.Tipo,
                 Rentabilidade = p.RentabilidadeAnual,
-                Risco =  p.Risco.ToString(),
+                Risco = p.Risco switch
+                {
+                    10 => "Baixo",
+                    20 => "Médio",
+                    30 => "Alto",
+                    _ => "Desconhecido"
+                }
             });
         }
     }
